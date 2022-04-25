@@ -10,30 +10,59 @@
 </head>
 <body>
     <form>
+        
         <div class="form-group">
-            <label for="degirmentip">Değirmen Tipini Seçiniz</label>
+            <label for="degirmentip">Öğütme Tipini Seçiniz</label>
             <select class="form-control" name="degirmentip">
-                <option>Çubuklu Değirmen</option>
-                <option>Bilyalı Değirmen</option>
-                <option>Otojen Değirmen</option>
+                <option value="cubuklu">Çubuklu Değirmen</option>
+                <option value="bilyalı">Bilyalı Değirmen</option>
+                <option value="otojen">Otojen Değirmen</option>
+                <option value="cubukbilya">Çubuklu Değirmen-Bilyalı Değirmen Kapalı Devre</option>
               </select>
             </div>
         <div class="form-group">
             <label for="devretip">Beslenen Devre Tipini Seçiniz</label>
             <select class="form-control" name="devretip">
-                <option>Açık Devre</option>
-                <option>Kapalı Devre</option>
+                <option value="acikdevre">Açık Devre</option>
+                <option value="kapalidevre">Kapalı Devre</option>
             </select>
             </div>
+        <div class="form-group">
+            <label for="ogutmeortam">Öğütme Ortamı Seçiniz</label>
+            <select class="form-control" name="ogutmeortam">
+                    <option value="yasogutme">Yaş Öğütme</option>
+                    <option value="kuruogutme">Kuru Öğütme</option>
+            <!-- If kuruogutme selected EF1 will be used (1.3) -->
+            </select>
+            </div>    
         <div class="form-group">
                 <label for="beslemeton">Değirmene Beslenen(ton/saat)</label>
                 <input type="number" class="form-control" id="beslemeton" aria-describedby="beslemeton" placeholder="Değer Giriniz" value="beslenen">
             </div>
-       
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
+            <div class="form-group">
+                <label for="beslenengecenboyut">Beslenen %80'i Geçen Boyut(mikron)</label>
+                <input type="number" class="form-control" id="beslenengecenboyut" aria-describedby="beslenengecenboyut" placeholder="Değer Giriniz" value="beslenengecenboyut">
+            </div>
+            <div class="form-group">
+                <label for="cubuklucikis">Çubuklu Değirmen Çıkışı %80'i Geçen Boyut(mikron)(Öğütme Tipi Kapalı Devre ise opsiyonel yapacağız)</label>
+                <input type="number" class="form-control" id="cubuklucikis" aria-describedby="cubuklucikis" placeholder="Değer Giriniz" value="cubuklucikis">
+            </div>
+            <div class="form-group">
+                <label for="degirmencikisboyut">Değirmen Çıkış %80'i Geçen Boyut</label>
+                <input type="number" class="form-control" id="degirmencikisboyut" aria-describedby="degirmencikisboyut" placeholder="Değer Giriniz" value="degirmencikisboyut">
+            </div>
+            <div class="form-group">
+                <label for="isindeks">İş İndeksi Wi(kWh/ton)</label>
+                <input type="number" class="form-control" id="isindeks" aria-describedby="isindeks" placeholder="Değer Giriniz" value="isindeks">
+            </div>
+            <div class="form-group">
+                <label for="beslenenyogunluk">Beslenen Cevher Yoğunluğu(gr/cm^3)</label>
+                <input type="number" class="form-control" id="beslenenyogunluk" aria-describedby="beslenenyogunluk" placeholder="Değer Giriniz" value="beslenenyogunluk">
+            </div>
+            <div class="form-group">
+                <label for="ikincibeslenenyogunluk">Bilyalı Değirmene Beslenen Cevher Yoğunluğu(gr/cm^3)(Öğütme Tipi Kapalı Devre ise opsiyonel yapacağız)</label>
+                <input type="number" class="form-control" id="ikincibeslenenyogunluk" aria-describedby="ikincibeslenenyogunluk" placeholder="Değer Giriniz" value="ikincibeslenenyogunluk">
+            </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     
