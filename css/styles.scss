@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #343233;
+}
+
+.homeContainer {
+    width: 60rem;
+    max-width: 90%;
+    margin: 3rem auto;
+    display: flex;
+    flex-direction: column;
+
+    .homeTitle {
+        color:  #efdab9;
+        text-align: center;
+    }
+
+    .menuWrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1rem;
+        overflow: hidden;
+    }
+
+    .contentWrapper {
+        width: 100%;
+        margin-top: 4rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+    }
+
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.85em 1em;
+    margin: .5rem 0;
+    min-width: 10rem;
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: .2s all;
+
+    &.turquoiseBtn {
+        background-color: #61efce;
+        color: #343233;
+
+        &:hover {
+            background-color: #45edc6;
+        }
+    
+        &:focus {
+            background-color: darken($color: #45edc6, $amount: 10);
+        }  
+    }
+
+    &.yellowBtn {
+        background-color: #ffd152;
+        color: #343233;
+
+        &:hover {
+            background-color: #ffc31f;
+        }
+    
+        &:focus {
+            background-color: darken($color: #ffc31f, $amount: 10);
+        }  
+    }
+
+    &.fullWidth {
+        width: 100%;
+    }
+}
+
+.fullBtnWrapper {
+    width: 100%;
+}
+
+.inputWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    width: 49%;
+
+    > label {
+        color:#efdab9;
+        margin-bottom: .7rem;
+        width: 100%;
+    }
+
+    input, select {
+        background: none;
+        border: 2px solid #efdab9;
+        border-radius: 6px;
+        padding: .5rem;
+        font-size: 1.15rem;
+        margin-bottom: .5rem;
+        color: #efdab9;
+        outline: none;
+        width: 100%;
+
+        option {
+            background-color: #343233;
+            color: #efdab9;
+        }
+    }
+}
+
+.hidden {
+    display: none;
+}
