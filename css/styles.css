@@ -1,0 +1,212 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background: #343233;
+}
+
+.homeContainer {
+  width: 60rem;
+  max-width: 90%;
+  margin: 3rem auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.homeContainer .homeTitle {
+  color: #efdab9;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.homeContainer .menuWrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 1rem;
+  position: relative;
+}
+
+.homeContainer .menuWrapper .menuButton {
+  position: relative;
+}
+
+.homeContainer .menuWrapper .menuButton:hover .imgWrapper > img {
+  visibility: visible;
+}
+
+.homeContainer .menuWrapper .menuButton .imgWrapper {
+  position: fixed;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 60rem;
+  top: 50%;
+}
+
+.homeContainer .menuWrapper .menuButton .imgWrapper > img {
+  visibility: hidden;
+  width: 15rem;
+  max-width: 100%;
+}
+
+.homeContainer .contentWrapper {
+  width: 100%;
+  margin-top: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.homeContainer .contentWrapper .machineGeneralInputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.homeContainer .contentWrapper .outputInputImageWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.85em 1em;
+  margin: .5rem 0;
+  min-width: 14rem;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 5px;
+  text-decoration: none;
+  -webkit-transition: .2s all;
+  transition: .2s all;
+}
+
+.btn.turquoiseBtn {
+  background-color: #61efce;
+  color: #343233;
+}
+
+.btn.turquoiseBtn:hover {
+  background-color: #45edc6;
+}
+
+.btn.turquoiseBtn:focus {
+  background-color: #17e9b8;
+}
+
+.btn.yellowBtn {
+  background-color: #ffd152;
+  color: #343233;
+}
+
+.btn.yellowBtn:hover {
+  background-color: #ffc31f;
+}
+
+.btn.yellowBtn:focus {
+  background-color: #ebac00;
+}
+
+.btn.fullWidth {
+  width: 100%;
+}
+
+.fullBtnWrapper {
+  width: 100%;
+}
+
+.inputWrapper {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.inputWrapper > label {
+  color: #efdab9;
+  margin-bottom: .7rem;
+  width: 100%;
+  font-size: .95rem;
+}
+
+.inputWrapper input, .inputWrapper select {
+  background: none;
+  border: 1px solid #efdab9;
+  border-radius: 6px;
+  padding: .25rem;
+  font-size: 1rem;
+  margin-bottom: .5rem;
+  color: #efdab9;
+  outline: none;
+  width: 100%;
+}
+
+.inputWrapper input option, .inputWrapper select option {
+  background-color: #343233;
+  color: #efdab9;
+}
+
+.hidden {
+  display: none;
+}
+/*# sourceMappingURL=styles.css.map */
