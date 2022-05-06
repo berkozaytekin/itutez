@@ -1,6 +1,6 @@
 
 
-let w, ef8 = 1, ef1 = 1, ef4 = 1, rr, ef7 = 1, ef5 = 1, ef2 = 1, hp, dividedHp, fo, fb;
+let w, ef8 = 1, ef1 = 1, ef4 = 1, rr, ef7 = 1, ef5 = 1, ef2 = 1, hp, dividedHp, fo, fb, bko=1, devredenYuk=1;
 
 const cubukBoyutData = [
     {
@@ -260,7 +260,7 @@ $('#degirmencikisboyut').val(53)
 $('#degirmencikisboyutpercent').val(1.2)
 $('#degirmencikisd80').val(53)
 
-function bigCalc() {
+function CalcMill() {
 
 
 
@@ -392,11 +392,33 @@ function bigCalc() {
     console.log('ton', $('#beslemeton').val())
     console.log('hp' , hp)
     console.log('diviededhp' , dividedHp)
+    swal("Sonuç (HP): " +hp)
+    
 }
+
+function CalcCrusher(){
+   bko = $('#elekaltiboyut').val() / $('#hedefboyut').val()
+   console.log('bko:', bko)
+   swal("Boyut Küçültme Oranı: " +bko)
+  
+}
+function CalcCrusherr(){
+
+    devredenYuk= $('#beslenenkirilmamis').val() * ($('#besleneneu').val()/ (1-($('#cikaneu').val() /  $('#elekverim').val() )))
+    console.log('devredenYuk:', devredenYuk)
+    swal("Devreden Yük: " +devredenYuk)
+ }
 
 
 $('#calcBtn').on('click', () => {
-    bigCalc()
+    CalcMill()
+});
+
+$('#calcBtnCrusher').on('click', () => {
+    CalcCrusher()
+});
+$('#calcBtnCrusherr').on('click', () => {
+    CalcCrusherr()
 });
 
 $('#degirmenTur').on('change', () => {
