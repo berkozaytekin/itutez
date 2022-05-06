@@ -5,98 +5,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Degirmen Boyutlandırma</title>
+    <title>Kırıcı Boyutlandırma</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
     <div class="homeContainer">
-        <h1 class="homeTitle">Değirmen Boyutlandırma</h1>
+        <h1 class="homeTitle">Kırıcı Boyutlandırma</h1>
 
         <div class="contentWrapper">
 
             <div class="machineGeneralInputs">
+                
                 <div class="inputWrapper">
-                    <label for="degirmenTur">Değirmen Tipi</label>
-                    <select name="degirmenTur" id="degirmenTur">
-                        <option value="cubuklu">Çubuklu Değirmen</option>
-                        <option value="bilyali">Bilyalı Değirmen</option>
-                        <option value="otojen">Otojen Değirmen</option>
-                        <!-- If cubuklu and acikdevre selected, EF8 will be (1.4) -->
-                        <!-- If cubuklu and kapalidevre selected, EF8 will be (1.2) -->
-                        <!-- If cubukbilya and acikdevre selected, EF8 will be (1.2) -->
-                        <!-- If cubukbilya and kapalidevre selected, EF8 will not be used -->
-                    </select>
+                    <label for="maksparcaboyut">Maksimum Parça Boyutu(mm)</label>
+                    <input type="number" id="maksparcaboyut" aria-describedby="maksparcaboyut" placeholder="Değer Giriniz">
+                </div>
+
+                <div class="inputWrapper">
+                    <label for="elekaltiboyut">%80 Altındaki Boyut(mm)</label>
+                    <input type="number" id="elekaltiboyut" aria-describedby="elekaltiboyut" placeholder="Değer Giriniz">
+                </div>
+
+                <div class="inputWrapper">
+                    <label for="besleneneton">Kırıcıya Beslenen(ton/saat)</label>
+                    <input type="number" id="besleneneton" aria-describedby="besleneneton" placeholder="Değer Giriniz"
+                        value="besleneneton">
                 </div>
     
-    
-    
                 <div class="inputWrapper">
-                    <label for="tekmibilyaliylami">Çubuklu Değirmen Devre Tipi</label>
-                    <select name="tekmibilyaliylami" id="tekmibilyaliylami">
-                        <option value="tek">Tek</option>
-                        <option value="bilyali">Bilyali</option>
-                        <!-- Its about EF8  -->
-                    </select>
-                </div>
-    
-    
-    
-    
-                <div class="inputWrapper">
-                    <label for="ogutmeortam">Öğütme Ortamı</label>
-                    <select name="ogutmeortam" id="ogutmeortam">
-                        <option value="yasogutme">Yaş Öğütme</option>
-                        <option value="kuruogutme">Kuru Öğütme</option>
-                        <!-- If kuruogutme selected EF1 will be used (1.3) -->
-                    </select>
-                </div>
-    
-    
-    
-    
-                <div class="inputWrapper">
-                    <label for="isindeks">Wi(kWh/ton)</label>
-                    <input type="number" id="isindeks" aria-describedby="isindeks" placeholder="Değer Giriniz">
-                </div>
+                    <label for="hedefboyut">Hedef Boyut(mm)</label>
+                    <input type="number" id="hedefboyut" aria-describedby="hedefboyut" placeholder="Değer Giriniz"
+                        value="hedefboyut">
+                </div>           
             </div>
 
             <div class="outputInputImageWrapper">
                 <div class="machineInputWrapper">
+                   
+                    
                     <div class="inputWrapper">
-                        <label for="devretip">Degirmene Besleme Yapan Kırıcının Devre Tipi</label>
-                        <select name="devretip" id="devretip">
-                            <option value="acikdevre">Açık Devre</option>
-                            <option value="kapalidevre">Kapalı Devre</option>
-                            <!-- Its about EF8  -->
-                        </select>
+                        <label for="beslenenkirilmamis">Kırma Devresine Beslenen Kırılmamış Cevher Miktarı(ton)</label>
+                        <input type="number" id="beslenenkirilmamis" aria-describedby="beslenenkirilmamis"
+                            placeholder="Değer Giriniz" value="beslenenkirilmamis">
                     </div>
                     <div class="inputWrapper">
-                        <label for="beslemeton">Değirmene Beslenen(ton/saat)</label>
-                        <input type="number" id="beslemeton" aria-describedby="beslemeton" placeholder="Değer Giriniz"
-                            value="beslemeton">
-                    </div>
-                    <div class="inputWrapper">
-                        <label for="beslenengecenboyut">Beslenenin %80'inin Elekten Geçtiği Boyut(mikron)</label>
-                        <input type="number" id="beslenengecenboyut" aria-describedby="beslenengecenboyut"
-                            placeholder="Değer Giriniz" value="beslenengecenboyut">
-                    </div>
-                    <div class="inputWrapper">
-                        <label for="beslenenyogunluk">Beslenen Yoğunluğu(gr/cm^3)</label>
-                        <input type="number" id="beslenenyogunluk" aria-describedby="beslenenyogunluk"
-                            placeholder="Değer Giriniz" value="beslenenyogunluk">
-                    </div>
-                </div>
-    
-                <img src="/images/ballmill.gif" alt="ballmill">
-    
-    
-                <div class="machineOutputWrapper">
-                    <div class="inputWrapper">
-                        <label for="degirmencikisboyutpercent">Değirmen Çıkışı "d" değeri</label>
-                        <select type="number" id="degirmencikisboyutpercent" aria-describedby="degirmencikisboyutpercent"
-                            placeholder="Değer Giriniz" value="degirmencikisboyutpercent">
+                        <label for="elekverim">Elek Verimi(%)</label>
+                        <select type="number" id="elekverim" aria-describedby="elekverim"
+                            placeholder="Değer Giriniz" value="elekverim">
                             <option value="1.035">50</option>
                             <option value="1.05">60</option>
                             <option value="1.1">70</option>
@@ -107,54 +64,37 @@
                             <option value="1.7">98</option>
                         </select>
                     </div>
+                </div>
+    
+                <img src="/images/crusher.gif" alt="crusher">
+    
+    
+                <div class="machineOutputWrapper">
+                    
 
                     <div class="inputWrapper">
-                        <label for="degirmencikisboyut">Çıkışın "d" Değerinden Geçtiği Boyut(mikron)</label>
-                        <input type="number" id="degirmencikisboyut" aria-describedby="degirmencikisboyut"
-                            placeholder="Değer Giriniz" value="degirmencikisboyut">
+                        <label for="besleneneu">Kırma Devresine Beslenen Elek Üstü Malzemedeki Elek Üstü Oranı(%)</label>
+                        <input type="number" id="besleneneu" aria-describedby="besleneneu"
+                            placeholder="Değer Giriniz" value="besleneneu">
                     </div>
     
                     
                     <div class="inputWrapper">
-                        <label for="degirmencikisd80">Çıkışın d80 Değeri(mikron)</label>
-                        <input type="number" id="degirmencikisd80" aria-describedby="degirmencikisd80"
-                            placeholder="Değer Giriniz" value="degirmencikisd80">
+                        <label for="cikaneu">Kırma Devresinden Çıkan Kırılmış Malzemedeki Elek Üstü Oranı(%)</label>
+                        <input type="number" id="cikaneu" aria-describedby="cikaneu"
+                            placeholder="Değer Giriniz" value="cikaneu">
                     </div>
                 </div>
             </div>
 
 
-
-
-
-
-
-            <!-- <div class="inputWrapper">
-                <label for="ikincibeslenenyogunluk">Bilyalı Değirmene Beslenen Cevher Yoğunluğu(gr/cm^3)(Öğütme Tipi
-                    Kapalı
-                    Devre ise opsiyonel yapacağız)</label>
-                <input type="number" id="ikincibeslenenyogunluk" aria-describedby="ikincibeslenenyogunluk"
-                    placeholder="Değer Giriniz" value="ikincibeslenenyogunluk">
-            </div>
-
-            <div class="inputWrapper hidden" id="cubukluCikisWrapper">
-                <label for="cubuklucikis">Çubuklu Değirmen Çıkışı %80'i Geçen Boyut(mikron)</label>
-                <input type="number" id="cubuklucikis" aria-describedby="cubuklucikis" placeholder="Değer Giriniz"
-                    value="cubuklucikis">
-            </div> -->
-
             <div class="fullBtnWrapper">
-                <a href="#" class="btn yellowBtn fullWidth" id="calcBtn">Boyutlandır</a>
+                <a href="#" class="btn yellowBtn fullWidth" id="calcBtn">BKO Hesapla</a>
+                <a href="#" class="btn yellowBtn fullWidth" id="calcBtn">Devreden Yük Hesapla</a>
                 <a href="/" class="btn turquoiseBtn fullWidth">Ana Menüye Dön</a>
             </div>
 
         </div>
-
-
-
-
-
-
 
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"

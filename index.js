@@ -374,7 +374,7 @@ function bigCalc() {
         dividedHp = hp / 6 ;
     } 
     else {
-        alert('kataloglarda bu hp bulunmuyor siktir lan')
+        alert('Kataloglarda bu hp bulunmuyor!(12000HP üzeri)')
     }
 
 
@@ -390,7 +390,6 @@ function bigCalc() {
     console.log('ef7:', ef7)
     console.log('ef8:', ef8)
     console.log('ton', $('#beslemeton').val())
-
     console.log('hp' , hp)
     console.log('diviededhp' , dividedHp)
 }

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stok Hesaplama</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <div class="homeContainer">
+        <h1 class="homeTitle">Stok Hesaplama</h1>
+
+        <div class="contentWrapper">
+
+            <div class="machineGeneralInputs">
+      
+                <div class="inputWrapper">
+                    <label for="stoktip">Stoklama Tipi</label>
+                    <select name="stoktip" id="stoktip">
+                        <option value="konik">Konik Stoklama</option>
+                        
+                    </select>
+                </div>
+            
+    
+                <div class="inputWrapper">
+                    <label for="sevacisi">Stok Şev Açısı</label>
+                    <input type="number" id="sevacisi" aria-describedby="sevacisi" placeholder="Değer Giriniz">
+                </div>
+    
+                <div class="inputWrapper">
+                    <label for="maksboyut">Maksimum Parça Boyutu(mm)</label>
+                    <input type="number" id="maksboyut" aria-describedby="maksboyut" placeholder="Değer Giriniz">
+                </div>
+
+                <div class="inputWrapper">
+                    <label for="stokYukseklik">Stok Yüksekliği(m)</label>
+                    <input type="number" id="stokyukseklik" aria-describedby="stokyukseklik" placeholder="Değer Giriniz">
+                </div>
+            </div>
+
+            <div class="outputInputImageWrapper">
+                <div class="machineInputWrapper">
+                    <div class="inputWrapper">
+                        <label for="duvarHeight">Yapılacak İstinat Duvarı Yüksekliği(m)</label>
+                        <input type="number" id="duvarHeight" aria-describedby="duvarHeight" placeholder="Değer Giriniz">
+                    </div>
+                    <div class="inputWrapper">
+                        <label for="newstokYukseklik">Yeni Stok Yüksekliği(m)</label>
+                        <input type="number" id="newstokYukseklik" aria-describedby="newstokYukseklik" placeholder="Değer Giriniz"
+                            value="newstokYukseklik">
+                    </div>
+                   
+                </div>
+    
+                <img src="/images/ballmill.gif" alt="ballmill">
+    
+    
+                <div class="machineOutputWrapper">
+                    
+                    <div class="inputWrapper">
+                        <label for="newstokUzunluk">Yeni Stok Uzunluğu(m)</label>
+                        <input type="number" id="newstokUzunluk" aria-describedby="newstokUzunluk"
+                            placeholder="Değer Giriniz" value="newstokUzunluk">
+                    </div>
+                    <div class="inputWrapper">
+                        <label for="bulkyogunluk">Bulk Yoğunluğu(ton/m^3)</label>
+                        <input type="number" id="bulkyogunluk" aria-describedby="bulkyogunluk"
+                            placeholder="Değer Giriniz" value="bulkyogunluk">
+                    </div>
+                    
+                </div>
+            </div>
+
+
+            <div class="fullBtnWrapper">
+                <a href="#" class="btn yellowBtn fullWidth" id="calcBtn">Boyutlandır</a>
+                <a href="/" class="btn turquoiseBtn fullWidth">Ana Menüye Dön</a>
+            </div>
+
+        </div>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="index.js"></script>
+</body>
+
+</html>
