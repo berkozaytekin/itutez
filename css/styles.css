@@ -75,6 +75,7 @@ body {
 .homeContainer .menuWrapper .menuButton .imgWrapper > img {
   visibility: hidden;
   max-width: 45%;
+  max-height: 45%;
 }
 
 .homeContainer .contentWrapper {
