@@ -19,53 +19,58 @@
             <div class="machineGeneralInputs">
       
                 <div class="inputWrapper">
-                    <label for="stoktip">Stoklama Tipii</label>
+                    <label for="stoktip">Stoklama Tipi</label>
                     <select name="stoktip" id="stoktip">
+                        <option value="" disabled selected hidden></option>
                         <option value="konik">Konik Stoklama</option>
-                        
+                        <option value="kare">Kare Stoklama</option>  
                     </select>
                 </div>
-            
-    
+                
                 <div class="inputWrapper">
-                    <label for="sevacisi">Stok Şev Açısı</label>
+                    <label for="sevacisi">Konik Stok Şev Açısı</label>
                     <input type="number" id="sevacisi" aria-describedby="sevacisi" placeholder="Değer Giriniz">
                 </div>
+
     
-                <div class="inputWrapper">
-                    <label for="maksboyut">Maksimum Parça Boyutu(mm)</label>
-                    <input type="number" id="maksboyut" aria-describedby="maksboyut" placeholder="Değer Giriniz">
-                </div>
+                
 
                 <div class="inputWrapper">
-                    <label for="stokYukseklik">Stok Yüksekliği(m)</label>
-                    <input type="number" id="stokyukseklik" aria-describedby="stokyukseklik" placeholder="Değer Giriniz">
+                    <label for="stokYukseklik">Konik Stok Yüksekliği(m)</label>
+                    <input type="number" id="stokYukseklik" aria-describedby="stokYukseklik" placeholder="Değer Giriniz">
                 </div>
+                <div class="inputWrapper">
+                    <label for="istinatvaryok">İstinat Duvarı Var mı?</label>
+                    <select name="istinatvaryok" id="istinatvaryok" >
+                        <option value="" disabled selected hidden></option>
+                        <option value="istinatyok">Yok</option>
+                        <option value="istinatvar">Var</option>
+                          
+                    </select>
+                </div>
+                
+                
             </div>
-
+        
             <div class="outputInputImageWrapper">
                 <div class="machineInputWrapper">
                     <div class="inputWrapper">
-                        <label for="duvarHeight">Yapılacak İstinat Duvarı Yüksekliği(m)</label>
-                        <input type="number" id="duvarHeight" aria-describedby="duvarHeight" placeholder="Değer Giriniz">
+                        <label for="kareSevAcisi">Kare Stok Şev Açısı</label>
+                        <select name="kareSevAcisi" id="kareSevAcisi">
+                            <option value="" disabled selected hidden></option>
+                            <option value="3.409">40</option>
+                            <option value="3.222">41</option>
+                            <option value="3.048">42</option>
+                            <option value="2.887">43</option>
+                            <option value="2.736">44</option>
+                            <option value="2.579">45</option>
+                            
+                        </select>
                     </div>
                     <div class="inputWrapper">
-                        <label for="newstokYukseklik">Yeni Stok Yüksekliği(m)</label>
-                        <input type="number" id="newstokYukseklik" aria-describedby="newstokYukseklik" placeholder="Değer Giriniz"
-                            value="newstokYukseklik">
-                    </div>
-                   
-                </div>
-    
-                <img src="/images/truck.gif" alt="truck">
-    
-    
-                <div class="machineOutputWrapper">
-                    
-                    <div class="inputWrapper">
-                        <label for="newstokUzunluk">Yeni Stok Uzunluğu(m)</label>
-                        <input type="number" id="newstokUzunluk" aria-describedby="newstokUzunluk"
-                            placeholder="Değer Giriniz" value="newstokUzunluk">
+                        <label for="kenarUzunluk">Kare Stok Kenar Uzunluğu(m)</label>
+                        <input type="number" id="kenarUzunluk" aria-describedby="kenarUzunluk" placeholder="Değer Giriniz"
+                        value="kenarUzunluk">
                     </div>
                     <div class="inputWrapper">
                         <label for="bulkyogunluk">Bulk Yoğunluğu(ton/m^3)</label>
@@ -73,12 +78,40 @@
                             placeholder="Değer Giriniz" value="bulkyogunluk">
                     </div>
                     
+                    
+                    
+                   
+                   
                 </div>
+    
+                <img src="/images/truck.gif" alt="truck">
+    
+    
+                <div class="machineOutputWrapper">
+                   
+                    <div class="inputWrapper">
+                        <label for="duvarHeight">Yapılacak İstinat Duvarı Yüksekliği(m)</label>
+                        <input type="number" id="duvarHeight" aria-describedby="duvarHeight" placeholder="Değer Giriniz"
+                        value="duvarHeight">
+                    </div>
+                    <div class="inputWrapper">
+                        <label for="newstokYukseklik">Yeni Stok Yüksekliği(m)</label>
+                        <input type="number" id="newstokYukseklik" aria-describedby="newstokYukseklik" placeholder="Değer Giriniz"
+                            value="newstokYukseklik">
+                    </div>
+                    <div class="inputWrapper">
+                        <label for="stokUzunluk">Planlanan Yeni Stok Uzunluğu(m)</label>
+                        <input type="number" id="stokUzunluk" aria-describedby="stokUzunluk"
+                            placeholder="Değer Giriniz" value="stokUzunluk">
+                    </div>
+                    
+                </div>
+            </div>
             </div>
 
 
             <div class="fullBtnWrapper">
-                <a href="#" class="btn yellowBtn fullWidth" id="calcBtn">Boyutlandır</a>
+                <a href="#" class="btn yellowBtn fullWidth" id="calcBtnStok">Hesapla</a>
                 <a href="/" class="btn turquoiseBtn fullWidth">Ana Menüye Dön</a>
             </div>
 
@@ -89,6 +122,7 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="index.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>

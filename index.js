@@ -1,7 +1,7 @@
 
 
 let w, ef8 = 1, ef1 = 1, ef4 = 1, rr, ef7 = 1, ef5 = 1, ef2 = 1, hp, dividedHp, fo, fb, bko=1, devredenYuk=1;
-
+let karestok , konikstok, yaricap , istinatstok ,v1 ,yaricap2, yaricap3 ,v2,v3 ,v4  ;
 const cubukBoyutData = [
     {
         "sonHp": 8,
@@ -260,6 +260,7 @@ $('#degirmencikisboyut').val(53)
 $('#degirmencikisboyutpercent').val(1.2)
 $('#degirmencikisd80').val(53)
 
+
 function CalcMill() {
 
 
@@ -426,7 +427,60 @@ function CalcCrusherr(){
     console.log('devredenYuk:', devredenYuk)
     swal("Devreden Yük: " +devredenYuk)
  }
+ function CalcStok(){
+     
+    
+    
+    if       ( parseFloat($('#kareSevAcisi option').filter(':selected').val()) == 3.409) {
+        karestok = parseFloat($('#kareSevAcisi option').filter(':selected').val()) * Math.pow(parseFloat($('#kenarUzunluk').val() /2),3) * Math.tan(40 * Math.PI / 180);
+         
+    
+    } else if (parseFloat($('#kareSevAcisi option').filter(':selected').val()) == 3.222) {
+        karestok = parseFloat($('#kareSevAcisi option').filter(':selected').val())  * Math.pow(parseFloat($('#kenarUzunluk').val() /2),3) * Math.tan(41 * Math.PI / 180);
 
+      
+    } else if (parseFloat($('#kareSevAcisi option').filter(':selected').val()) == 3.048 ) {
+        karestok = parseFloat($('#kareSevAcisi option').filter(':selected').val())  * Math.pow(parseFloat($('#kenarUzunluk').val() /2),3) * Math.tan(42 * Math.PI / 180);
+
+    } else if (parseFloat($('#kareSevAcisi option').filter(':selected').val()) == 2.887) {
+        karestok = parseFloat($('#kareSevAcisi option').filter(':selected').val())  * Math.pow(parseFloat($('#kenarUzunluk').val() /2),3) * Math.tan(43 * Math.PI / 180);
+    } else if (parseFloat($('#kareSevAcisi option').filter(':selected').val()) == 2.736 ) {
+        karestok = parseFloat($('#kareSevAcisi option').filter(':selected').val()) * Math.pow(parseFloat($('#kenarUzunluk').val() /2),3) * Math.tan(44 * Math.PI / 180); 
+    } else if (parseFloat($('#kareSevAcisi option').filter(':selected').val()) == 2.579 ) {
+        karestok = parseFloat($('#kareSevAcisi option').filter(':selected').val()) * Math.pow(parseFloat($('#kenarUzunluk').val() /2),3) * Math.tan(44 * Math.PI / 180); 
+    } else  {
+        console.log('error:', karestok)
+    } 
+        console.log('stok m3:', karestok)
+
+        yaricap = parseFloat($('#stokYukseklik').val()) / Math.tan(parseFloat($('#sevacisi').val()) * Math.PI / 180) 
+        yaricap2 = parseFloat($('#newstokYukseklik').val()) / Math.tan(parseFloat($('#sevacisi').val()) * Math.PI / 180) 
+        yaricap3 = yaricap2 - yaricap 
+ 
+        konikstok = (Math.PI * Math.pow(yaricap,2) * $('#stokYukseklik').val() )/3
+        console.log('konikstok m3:', konikstok)
+        console.log('yaricap', yaricap)
+        //swal("konikstok m3: " +konikstok)
+        $('#newstokYukseklik').val() 
+  
+        //v1 = (( yaricap * 2 * $('#stokYukseklik').val() ) / 2 ) * $('#stokUzunluk').val() 
+        v2 = (( yaricap3 * $('#duvarHeight').val() ) /2 ) * $('#stokUzunluk').val() 
+        v3 = ((2 * yaricap2 * $('#newstokYukseklik').val() ) / 2 ) * $('#stokUzunluk').val() 
+        v4 = v3-(2*v2)
+        istinatstok = $('#bulkyogunluk').val() * v4
+
+        //console.log('v1', v1)
+        console.log('v2', v2)
+        console.log('v3', v3)
+        console.log('v4', v4)
+        console.log('istinatstok', istinatstok)
+
+
+        $('#sevacisi').val() 
+
+
+   
+ }
 
 $('#calcBtn').on('click', () => {
     CalcMill()
@@ -438,6 +492,9 @@ $('#calcBtnCrusher').on('click', () => {
 $('#calcBtnCrusherr').on('click', () => {
     CalcCrusherr()
 });
+$('#calcBtnStok').on('click', () => {
+    CalcStok()
+});
 
 $('#degirmenTur').on('change', () => {
     if ($('#degirmenTur option').filter(':selected').val() === 'cubuklu') {
@@ -447,4 +504,114 @@ $('#degirmenTur').on('change', () => {
         $('#tekmibilyaliylami').attr("disabled", "disabled");
     }
 });
+$('#stoktip').on('change', () => {
+    if ($('#stoktip option').filter(':selected').val() === 'kare') {
+
+        $('#kareSevAcisi').removeAttr("disabled");
+    } else {
+        $('#kareSevAcisi').attr("disabled", "disabled");
+    }
+});
+$('#stoktip').on('change', () => {
+    if ($('#stoktip option').filter(':selected').val() === 'konik') {
+
+        $('#sevacisi').removeAttr("disabled");
+    } else {
+        $('#sevacisi').attr("disabled", "disabled");
+    }
+});
+$('#stoktip').on('change', () => {
+    if ($('#stoktip option').filter(':selected').val() === 'kare') {
+
+        $('#kenarUzunluk').removeAttr("disabled");
+    } else {
+        $('#kenarUzunluk').attr("disabled", "disabled");
+    }
+});
+$('#stoktip').on('change', () => {
+    if ($('#stoktip option').filter(':selected').val() === 'konik') {
+
+        $('#stokYukseklik').removeAttr("disabled");
+    } else {
+        $('#stokYukseklik').attr("disabled", "disabled");
+    }
+});
+$('#stoktip').on('change', () => {
+    if ($('#stoktip option').filter(':selected').val() === 'konik') {
+
+        $('#duvarHeight').removeAttr("disabled");
+    } else {
+        $('#duvarHeight').attr("disabled", "disabled");
+    }
+});
+$('#stoktip').on('change', () => {
+    if ($('#stoktip option').filter(':selected').val() === 'konik') {
+
+        $('#stokUzunluk').removeAttr("disabled");
+    } else {
+        $('#stokUzunluk').attr("disabled", "disabled");
+    }
+});
+$('#stoktip').on('change', () => {
+    if ($('#stoktip option').filter(':selected').val() === 'konik') {
+
+        $('#istinatvaryok').removeAttr("disabled");
+    } else {
+        $('#istinatvaryok').attr("disabled", "disabled");
+    }
+});
+
+$('#stoktip').on('change', () => {
+    if ($('#stoktip option').filter(':selected').val() === 'konik') {
+
+        $('#newstokYukseklik').removeAttr("disabled");
+    } else {
+        $('#newstokYukseklik').attr("disabled", "disabled");
+    }
+});
+$('#stoktip').on('change', () => {
+    if ($('#stoktip option').filter(':selected').val() === 'konik') {
+
+        $('#newstokUzunluk').removeAttr("disabled");
+    } else {
+        $('#newstokUzunluk').attr("disabled", "disabled");
+    }
+});
+
+$('#istinatvaryok').on('change', () => {
+    if ($('#istinatvaryok option').filter(':selected').val() === 'istinatvar') {
+
+        $('#duvarHeight').removeAttr("disabled");
+    } else {
+        $('#duvarHeight').attr("disabled", "disabled");
+    }
+});
+$('#istinatvaryok').on('change', () => {
+    if ($('#istinatvaryok option').filter(':selected').val() === 'istinatvar') {
+
+        $('#newstokYukseklik').removeAttr("disabled");
+    } else {
+        $('#newstokYukseklik').attr("disabled", "disabled");
+    }
+});
+$('#istinatvaryok').on('change', () => {
+    if ($('#istinatvaryok option').filter(':selected').val() === 'istinatvar') {
+
+        $('#newstokUzunluk').removeAttr("disabled");
+    } else {
+        $('#newstokUzunluk').attr("disabled", "disabled");
+    }
+});
+$('#istinatvaryok').on('change', () => {
+    if ($('#istinatvaryok option').filter(':selected').val() === 'istinatvar') {
+
+        $('#eskiDuvarHeight').removeAttr("disabled");
+    } else {
+        $('#eskiDuvarHeight').attr("disabled", "disabled");
+    }
+});
+
+
+
+
 
