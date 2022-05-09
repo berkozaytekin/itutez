@@ -2,6 +2,7 @@
 
 let w, ef8 = 1, ef1 = 1, ef4 = 1, rr, ef7 = 1, ef5 = 1, ef2 = 1, hp, dividedHp, fo, fb, bko=1, devredenYuk=1;
 let karestok , konikstok, yaricap , istinatstok ,v1 ,yaricap2, yaricap3 ,v2,v3 ,v4  ;
+let fbant, fbantgenislik, fbantagirlik , fbosbant , bantuzunluk , fbosbant2, fbosbant3, egim, hkotbant , fbantguc;
 const cubukBoyutData = [
     {
         "sonHp": 8,
@@ -481,9 +482,116 @@ function CalcCrusherr(){
 
    
  }
+ function CalcBant(){
+
+    
+    //swal("Devreden Yük: " +devredenYuk)
+
+    fbant = $('#beslemeBant').val() / (3600 * $('#konveyorHiz option').filter(':selected').val()*$('#malzemeBulk option').filter(':selected').val())
+    console.log('fbant:', fbant)
+
+    if (fbant < 0.004527) {
+        fbantgenislik = 300 ; 
+    
+    } else if (fbant > 0.004527 && fbant <= 0.009144) {
+        fbantgenislik = 400 ;
+      
+    } else if (fbant > 0.009144 && fbant <= 0.015369) {
+        fbantgenislik = 500;
+     
+    }
+    else if (fbant > 0.015369 && fbant <= 0.027692) {
+        fbantgenislik = 650;
+     
+    }else if (fbant > 0.027692 && fbant <= 0.043639) {
+        fbantgenislik = 800;
+     
+    }else if (fbant > 0.043639 && fbant <= 0.070519) {
+        fbantgenislik = 1000;
+     
+    }else if (fbant > 0.070519 && fbant <= 0.103654) {
+        fbantgenislik = 1200;
+     
+    }else if (fbant > 0.103654 && fbant <= 0.143262) {
+        fbantgenislik = 1400;
+     
+    }else 
+    {
+        console.log('katalogda yok', fbantgenislik)
+     
+    }
+
+    console.log('fbantgenislik:', fbantgenislik)
+
+
+
+    if (fbantgenislik == 300) {
+        fbantagirlik = 23 ; 
+    
+    } else if (fbantgenislik == 400) {
+        fbantagirlik = 27 ;
+      
+    } else if (fbantgenislik == 500) {
+        fbantagirlik = 32 ;
+      
+    } else if (fbantgenislik == 6450) {
+        fbantagirlik = 38 ;
+      
+    } else if (fbantgenislik == 800) {
+        fbantagirlik = 60 ;
+      
+    }else if (fbantgenislik == 1000) {
+        fbantagirlik = 75 ;
+      
+    } else if (fbantgenislik == 1200) {
+        fbantagirlik = 90 ;
+      
+    }else if (fbantgenislik == 1400) {
+        fbantagirlik = 115 ;
+      
+    }
+    else {
+        console.log('katalogda yok', fbantagirlik)
+     
+    }
+    console.log('fbantgirlik', fbantagirlik)
+    bantuzunluk = parseFloat($('#bantUzunluk').val()) + 3
+    fbosbant = (( fbantagirlik * bantuzunluk * 0.03 * $('#konveyorHiz option').filter(':selected').val())/75)
+    console.log('fbosbant', fbosbant)
+    console.log('bantuzunluk', bantuzunluk)
+
+    fbosbant2 = ($('#beslemeBant').val() * bantuzunluk * 0.03 )/270
+    console.log('fbosbant2', fbosbant2)
+
+   /* if ($('#egimBant').val()=0){
+        egim = 1
+    } else {
+        egim = $('#egimBant').val()
+    }*/
+    egim = $('#egimBant').val()
+    hkotbant = Math.sin(egim * Math.PI / 180) * bantuzunluk 
+    console.log('hkotbant', hkotbant)
+    fbosbant3 = ( $('#beslemeBant').val() * hkotbant ) / 270
+    console.log('fbosbant3', fbosbant3)
+
+    fbantguc = ( fbosbant + fbosbant2 + fbosbant3 ) * 1.2
+    console.log('fbantguc', fbantguc)
+
+
+
+
+
+
+
+    
+ }
 
 $('#calcBtn').on('click', () => {
     CalcMill()
+});
+
+$('#calcBtnBant').on('click', () => {
+    CalcBant()
 });
 
 $('#calcBtnCrusher').on('click', () => {
