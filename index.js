@@ -412,7 +412,14 @@ function CalcMill() {
     console.log('ton', $('#beslemeton').val())
     console.log('hp' , hp)
     console.log('diviededhp' , dividedHp)
-    swal("Sonuç (HP): " +hp)
+    var form = document.createElement("div");
+    form.innerHTML = `
+                    <div style="">ef8 ${ef8}</div><br>ef7 ${ef7}
+                `
+    swal({
+        title: 'fjsdfdskfjsdljf',
+        content: form
+    })
     
 }
 

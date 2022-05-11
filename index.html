@@ -10,11 +10,7 @@
     rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<style>
-    .col-4 {
-        padding: 0;
-    }
-</style>
+
 
 <body>
     <div class="homeContainer">
@@ -53,27 +49,88 @@
                 </div>
 
             </a>
-            <a href="/cyclone.html" class="btn yellowBtn menuButton">
+            <!-- <a href="/cyclone.html" class="btn yellowBtn menuButton">
                 Hidrosiklon Boyutlandırma
                 <div class="imgWrapper">
                     <img src="/images/cyclone.gif" alt="cyclone">
                 </div>
 
-            </a>
-            
-            
-            
-            
+            </a> -->
+        </div>
 
+        <div class="mobileMenuWrapper">
+            <div class="select-holder">
+                <select id="mobileMenuSelector" class="js-select">
+                    <!-- <option value="" selected disabled hidden>seciniz</option> -->
+                    <option value="1">Stok Hesaplama</option>
+                    <option value="2">Kırıcı Boyutlandırma</option>
+                    <option value="3">Değirmen Boyutlandırma</option>
+                    <option value="4">Elek Boyutlandırma</option>
+                    <option value="5">Bant Boyutlandırma</option>
+                </select>
+                <input type="text" class="js-fake-input">
+                <span>&#10094;</span>
+            </div>
 
-            
-         
+            <div class="mobImageWrapper">
+                <img class="menuItem beltItem" src="/images/belt.gif" alt="belt">
+                <img class="menuItem vibratingItem" src="/images/vibratingscreen.gif" alt="vibratingscreen">
+                <img class="menuItem ballmillItem" src="/images/ballmill.gif" alt="ballmill">
+                <img class="menuItem crusherItem crusherImg" src="/images/crusher.gif" alt="crusher">
+                <img class="menuItem truckItem truckImg" src="/images/truck.gif" alt="truck">
+            </div>
+
+            <div class="detailsWrapper">
+                <p class="menuItem truckItem">
+                    truckItem fdsfdfg ojdgifdgj jfdg jdfkg kdj kdjgkj dfkjg jdfjg dfjgjdfj gdjfg kdjgkj dfkjg jdfjg dfjgjdfj gdjfg kdjgkj dfkjg jdfjg dfjgjdfj gdjfg kdjgkj dfkjg jdfjg dfjgjdfj gdjfg kdjgkj dfkjg jdfjg dfjgjdfj gdjfggkj dfkjg jdfjg dfjgjdfj gdjfg
+                </p>
+
+                <p class="menuItem ballmillItem">
+                    ballmillItem fdsfdfg ojdgifdgj jfdg jdfkg kdj kdjgkj dfkjg jdfjg dfjgjdfj gdjfg kdjgkj dfkjg jdfjg dfjgjdfj gdjfg kdjgkj dfkjg jdfjg dfjgjdfj gdjfg kdjgkj dfkjg jdfjg dfjgjdfj gdjfg kdjgkj dfkjg jdfjg dfjgjdfj gdjfggkj dfkjg jdfjg dfjgjdfj gdjfg
+                </p>
+
+                <p class="menuItem crusherItem">
+                    crusherItem fdsfdfg ojdgifdgj jfdg jdfkg kdj kdjgkj dfkjg jdfjg dfjgjdfj gdjfg kdjgkj dfkjg jdfjg dfjgjdfj gdjfg kdjgkj dfkjg jdfjg dfjgjdfj gdjfg kdjgkj dfkjg jdfjg dfjgjdfj gdjfg kdjgkj dfkjg jdfjg dfjgjdfj gdjfggkj dfkjg jdfjg dfjgjdfj gdjfg
+                </p>
+
+                <p class="menuItem vibratingItem">
+                    vibratingItem fdsfdfg ojdgifdgj jfdg jdfkg kdj kdjgkj dfkjg jdfjg dfjgjdfj gdjfg kdjgkj dfkjg jdfjg dfjgjdfj gdjfg kdjgkj dfkjg jdfjg dfjgjdfj gdjfg kdjgkj dfkjg jdfjg dfjgjdfj gdjfg kdjgkj dfkjg jdfjg dfjgjdfj gdjfggkj dfkjg jdfjg dfjgjdfj gdjfg
+                </p>
+
+                <p class="menuItem beltItem">
+                    beltItem fdsfdfg ojdgifdgj jfdg jdfkg kdj kdjgkj dfkjg jdfjg dfjgjdfj gdjfg kdjgkj dfkjg jdfjg dfjgjdfj gdjfg kdjgkj dfkjg jdfjg dfjgjdfj gdjfg kdjgkj dfkjg jdfjg dfjgjdfj gdjfg kdjgkj dfkjg jdfjg dfjgjdfj gdjfggkj dfkjg jdfjg dfjgjdfj gdjfg
+                </p>
+            </div>
+
+            <div class="linkWrapper">
+                <a href="/stok.html" class="menuItem truckItem btn turquoiseBtn menuButton">
+                    GO
+                </a>
+
+                <a href="/kirici.html" class="menuItem crusherItem btn turquoiseBtn menuButton">
+                    GO
+                </a>
+
+                <a href="/bant.html" class="menuItem beltItem btn turquoiseBtn menuButton">
+                    GO
+                </a>
+
+                <a href="/elek.html" class="menuItem vibratingItem btn turquoiseBtn menuButton">
+                    GO
+                </a>
+
+                <a href="/degirmen.html" class="menuItem ballmillItem btn turquoiseBtn menuButton">
+                    GO
+                </a>
+            </div>
         </div>
 
     </div>
 
-    
+
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
