@@ -1,5 +1,4 @@
 theme: jekyll-theme-cayman
 markdown: GFM
-
-url: 'https://berkozaytekin.github.io/' # your main domain
+baseurl: /itutez
 
