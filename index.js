@@ -3,6 +3,7 @@
 let w, ef8 = 1, ef1 = 1, ef4 = 1, rr, ef7 = 1, ef5 = 1, ef2 = 1, hp, dividedHp, fo, fb, bko=1, devredenYuk=1;
 let karestok , konikstok, yaricap , istinatstok ,v1 ,yaricap2, yaricap3 ,v2,v3 ,v4  ;
 let fbant, fbantgenislik, fbantagirlik , fbosbant , bantuzunluk , fbosbant2, fbosbant3, egim, hkotbant , fbantguc;
+let q1 , q2 , q3,q4,q5,q6,q7,q8,qt, mdegeri, e1,e2,kdegeri, tdegeri, firstc, cdegeri, elekalan;
 const cubukBoyutData = [
     {
         "sonHp": 8,
@@ -429,9 +430,9 @@ function CalcMill() {
     form.innerHTML = `
                     Gereken Toplam Motor Gücü: ${dividedHp.toFixed(2)} hp
                     <br>
-                    Cap: ${newCap.toFixed(2)}
+                    Çap: ${newCap.toFixed(2)} m
                     <br>
-                    Uzunluk: ${newUzunluk.toFixed(2)}
+                    Uzunluk: ${newUzunluk.toFixed(2)} m
                 `
     swal({
         title: 'Sonuç',
@@ -440,17 +441,130 @@ function CalcMill() {
     
 }
 
+
+function CalcElek(){
+    q1 = $('#yogunluk').val() / 2.7
+    q2 = $('#elekacikligi option').filter(':selected').val() / 50
+    q3 = $('#elekacikliktip option').filter(':selected').val()
+    q4 = $('#tanetip option').filter(':selected').val()
+    q5 = $('#nem option').filter(':selected').val()
+    q6 = $('#verim option').filter(':selected').val()
+    q7 = $('#elektip option').filter(':selected').val()
+    q8 = $('#elekegim option').filter(':selected').val()
+    qt = q1 * q2 * q3 * q4 * q5 * q6 * q7 * q8
+    console.log('qt:', qt)
+    e1 = 1.6
+    mdegeri = Math.abs(((1.6 / 100) * $('#elekustu').val() )- 1.6)
+    e2 = 2
+    kdegeri = (2 / 90) * $('#elekyari').val()
+    tdegeri = $('#kapasite').val() * ($('#elekustu').val()/100)
+
+    if ($('#elekacikligi option').filter(':selected').val() == 40 ) {
+        firstc = 3
+    }else if ($('#elekacikligi option').filter(':selected').val() == 45){
+        firstc = 5
+    }
+    else if ($('#elekacikligi option').filter(':selected').val() == 46){
+        firstc = 6
+    }else if ($('#elekacikligi option').filter(':selected').val() == 49){
+        firstc = 8
+    }
+    else if ($('#elekacikligi option').filter(':selected').val() == 53){
+        firstc = 10
+    }else if ($('#elekacikligi option').filter(':selected').val() == 54){
+        firstc = 11
+    }
+    else if ($('#elekacikligi option').filter(':selected').val() == 54.5){
+        firstc = 12
+    }else if ($('#elekacikligi option').filter(':selected').val() == 55){
+        firstc = 13
+    }
+    else if ($('#elekacikligi option').filter(':selected').val() == 58){
+        firstc = 16
+    }else if ($('#elekacikligi option').filter(':selected').val() == 61){
+        firstc = 19
+    }
+    else if ($('#elekacikligi option').filter(':selected').val() == 63){
+        firstc = 22
+    }else if ($('#elekacikligi option').filter(':selected').val() == 64){
+        firstc = 25
+    }
+    else if ($('#elekacikligi option').filter(':selected').val() == 68){
+        firstc = 38
+    }else if ($('#elekacikligi option').filter(':selected').val() == 70){
+        firstc = 50
+    }
+    else if ($('#elekacikligi option').filter(':selected').val() == 72){
+        firstc = 63
+    }else if ($('#elekacikligi option').filter(':selected').val() == 73){
+        firstc = 75
+    }else{
+        firstc = 80
+    }
+   
+    
+    
+
+    if(firstc < 25 ){
+
+        cdegeri = (( 55 / 25 ) * firstc ) + 10
+
+    } else {
+        cdegeri = (( 170 / 175 ) * firstc) + 40
+
+    }
+
+   elekalan = tdegeri / ( cdegeri * mdegeri * kdegeri * qt) 
+   console.log('qt:', qt)
+   console.log('mdegeri:', mdegeri)
+   console.log('kdegeri:', kdegeri)
+   console.log('tdegeri:', tdegeri)
+   console.log('cdegeri:', cdegeri)
+   console.log('elekalan:', elekalan)
+   var form = document.createElement("div");
+        form.innerHTML = `
+                        ${elekalan.toFixed(2)} m<sup>2</sup>
+                        
+                    `
+        swal({
+            title: 'Gereken Elek Alanı',
+            content: form
+        })
+
+
+    
+}
+
 function CalcCrusher(){
    bko = $('#elekaltiboyut').val() / $('#hedefboyut').val()
    console.log('bko:', bko)
-   swal("Boyut Küçültme Oranı: " +bko)
+   var form = document.createElement("div");
+    form.innerHTML = `
+                    ${bko.toFixed(2)} 
+                    
+                `
+    swal({
+        title: 'Boyut Küçültme Oranı',
+        content: form
+    })
+ }
   
-}
+
 function CalcCrusherr(){
 
     devredenYuk= $('#beslenenkirilmamis').val() * ($('#besleneneu').val()/ (1-($('#cikaneu').val() /  $('#elekverim').val() )))
     console.log('devredenYuk:', devredenYuk)
-    swal("Devreden Yük: " +devredenYuk)
+    
+
+    var form = document.createElement("div");
+    form.innerHTML = `
+                    ${devredenYuk.toFixed(2)} ton
+                    
+                `
+    swal({
+        title: 'Devreden Yük',
+        content: form
+    })
  }
  function CalcStok(){
      
@@ -667,6 +781,10 @@ $('#calcBtnCrusherr').on('click', () => {
 $('#calcBtnStok').on('click', () => {
     CalcStok()
 });
+$('#calcBtnElek').on('click', () => {
+    CalcElek()
+});
+
 
 $('#degirmenTur').on('change', () => {
     if ($('#degirmenTur option').filter(':selected').val() === 'cubuklu') {
@@ -782,8 +900,3 @@ $('#istinatvaryok').on('change', () => {
         $('#eskiDuvarHeight').attr("disabled", "disabled");
     }
 });
-
-
-
-
-
