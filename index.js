@@ -397,6 +397,19 @@ function CalcMill() {
         alert('Kataloglarda bu hp bulunmuyor!(30000HP üzeri)')
     }
 
+    var closest = cubukBoyutData.reduce((acc, obj) =>
+    Math.abs(dividedHp - obj.sonHp) < Math.abs(dividedHp - acc.sonHp) ? obj : acc
+ );
+ 
+    let oran, newUzunluk, newCap;
+    if(closest){
+       oran = dividedHp / closest.sonHp
+        if(oran) {
+            newUzunluk = oran * closest.uzunluk
+            newCap = oran * closest.cap
+        }
+   }
+
 
 
     console.log('fo', fo)
@@ -414,10 +427,14 @@ function CalcMill() {
     console.log('diviededhp' , dividedHp)
     var form = document.createElement("div");
     form.innerHTML = `
-                    <div style="">ef8 ${ef8}</div><br>ef7 ${ef7}
+                    Gereken Toplam Motor Gücü: ${dividedHp.toFixed(2)} hp
+                    <br>
+                    Cap: ${newCap.toFixed(2)}
+                    <br>
+                    Uzunluk: ${newUzunluk.toFixed(2)}
                 `
     swal({
-        title: 'fjsdfdskfjsdljf',
+        title: 'Sonuç',
         content: form
     })
     
@@ -439,7 +456,7 @@ function CalcCrusherr(){
      
     
     
-    if       ( parseFloat($('#kareSevAcisi option').filter(':selected').val()) == 3.409) {
+    if( parseFloat($('#kareSevAcisi option').filter(':selected').val()) == 3.409) {
         karestok = parseFloat($('#kareSevAcisi option').filter(':selected').val()) * Math.pow(parseFloat($('#kenarUzunluk').val() /2),3) * Math.tan(40 * Math.PI / 180);
          
     
@@ -458,8 +475,7 @@ function CalcCrusherr(){
         karestok = parseFloat($('#kareSevAcisi option').filter(':selected').val()) * Math.pow(parseFloat($('#kenarUzunluk').val() /2),3) * Math.tan(44 * Math.PI / 180); 
     } else  {
         console.log('error:', karestok)
-    } 
-        console.log('stok m3:', karestok)
+    }
 
         yaricap = parseFloat($('#stokYukseklik').val()) / Math.tan(parseFloat($('#sevacisi').val()) * Math.PI / 180) 
         yaricap2 = parseFloat($('#newstokYukseklik').val()) / Math.tan(parseFloat($('#sevacisi').val()) * Math.PI / 180) 
@@ -483,8 +499,38 @@ function CalcCrusherr(){
         console.log('v4', v4)
         console.log('istinatstok', istinatstok)
 
+        if(karestok && $('#stoktip option').filter(':selected').val() === 'kare') {
+            var form = document.createElement("div");
+            form.innerHTML = `  
+                                 ${karestok.toFixed(2)} m<sup>3</sup>
+                        `
+            swal({
+                title: 'Stok Miktarı',
+                content: form
+            })
+        } else if(konikstok && $('#stoktip option').filter(':selected').val() === 'konik' && $('#istinatvaryok option').filter(':selected').val()  === 'istinatyok') {
 
-        $('#sevacisi').val() 
+            var form = document.createElement("div");
+            form.innerHTML = `  
+                                 ${konikstok.toFixed(2)} m<sup>3</sup>
+                        `
+            swal({
+                title: 'Stok Miktarı',
+                content: form
+            })
+
+        }else{
+            var form = document.createElement("div");
+            form.innerHTML = `  
+                                 ${istinatstok.toFixed(2)} m<sup>3</sup>
+                        `
+            swal({
+                title: 'Stok Miktarı',
+                content: form
+            })
+        }
+
+
 
 
    
@@ -586,6 +632,17 @@ function CalcCrusherr(){
 
 
 
+    if(fbantgenislik && fbantguc) {
+        var form = document.createElement("div");
+        form.innerHTML = `
+                        Bant Genişliği: ${fbantgenislik} mm <br>
+                        Motor Gücü: ${fbantguc.toFixed(2)} hp
+                    `
+        swal({
+            title: 'Sonuc',
+            content: form
+        })
+    }
 
 
 
