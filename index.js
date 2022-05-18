@@ -249,6 +249,262 @@ const cubukBoyutData = [
     }
 ]
 
+const bilyaBoyutData = [
+    {
+        "sonHp": 7,
+        "cap": 0.91,
+        "uzunluk": 0.91,
+        "bilyamm": 50,
+        "hizCs": 79.9,
+        "hizDdakika": 38.7,
+        "astarCarp": 0.76
+    },
+
+    {
+        "sonHp": 20,
+        "cap": 1.22,
+        "uzunluk": 1.22,
+        "bilyamm": 50,
+        "hizCs": 79.1,
+        "hizDdakika": 32.4,
+        "astarCarp": 1.07
+    },
+
+    {
+        "sonHp": 45,
+        "cap": 1.52,
+        "uzunluk": 1.52,
+        "bilyamm": 50,
+        "hizCs": 78.1,
+        "hizDdakika": 28.2,
+        "astarCarp": 1.37
+    }, 
+
+    {
+        "sonHp": 85,
+        "cap": 1.83,
+        "uzunluk": 1.83,
+        "bilyamm": 50,
+        "hizCs": 78,
+        "hizDdakika": 25.5,
+        "astarCarp": 1.68
+    },
+
+    {
+        "sonHp": 145,
+        "cap": 2.13,
+        "uzunluk": 2.13,
+        "bilyamm": 50,
+        "hizCs": 77.2,
+        "hizDdakika": 23.2,
+        "astarCarp": 1.98
+    },          
+
+    {
+        "sonHp": 228,
+        "cap": 2.44,
+        "uzunluk": 2.44,
+        "bilyamm": 50,
+        "hizCs": 76.1,
+        "hizDdakika": 21.3,
+        "astarCarp": 2.29
+    },
+    
+    {
+        "sonHp": 266,
+        "cap": 2.59,
+        "uzunluk": 2.44,
+        "bilyamm": 50,
+        "hizCs": 75.3,
+        "hizDdakika": 20.4,
+        "astarCarp": 2.44
+    }, 
+
+    {
+        "sonHp": 342,
+        "cap": 2.74,
+        "uzunluk": 2.74,
+        "bilyamm": 50,
+        "hizCs": 75,
+        "hizDdakika": 19.7,
+        "astarCarp": 2.55
+    }, 
+
+    {
+        "sonHp": 390,
+        "cap": 2.89,
+        "uzunluk": 2.74,
+        "bilyamm": 50,
+        "hizCs": 75,
+        "hizDdakika": 19.15,
+        "astarCarp": 2.74
+    },
+
+    {
+        "sonHp": 491,
+        "cap": 3.05,
+        "uzunluk": 3.05,
+        "bilyamm": 50,
+        "hizCs": 75,
+        "hizDdakika": 18.65,
+        "astarCarp": 2.89
+    },
+    
+    {
+        "sonHp": 552,
+        "cap": 3.20,
+        "uzunluk": 3.05,
+        "bilyamm": 50,
+        "hizCs": 75,
+        "hizDdakika": 18.15,
+        "astarCarp": 3.05
+    },
+    
+    {
+        "sonHp": 649,
+        "cap": 3.35,
+        "uzunluk": 3.35,
+        "bilyamm": 50,
+        "hizCs": 72.8,
+        "hizDdakika": 17.3,
+        "astarCarp": 3.17
+    },
+    
+    {
+        "sonHp": 718,
+        "cap": 3.51,
+        "uzunluk": 3.35,
+        "bilyamm": 50,
+        "hizCs": 72.2,
+        "hizDdakika": 16.75,
+        "astarCarp": 3.32
+    }, 
+    
+    {
+        "sonHp": 864,
+        "cap": 3.66,
+        "uzunluk": 3.66,
+        "bilyamm": 50,
+        "hizCs": 71.8,
+        "hizDdakika": 16.3,
+        "astarCarp": 3.47
+    },
+    
+    {
+        "sonHp": 954,
+        "cap": 3.81,
+        "uzunluk": 3.66,
+        "bilyamm": 50,
+        "hizCs": 71.8,
+        "hizDdakika": 15.95,
+        "astarCarp": 3.63
+    }, 
+    
+    {
+        "sonHp": 1130,
+        "cap": 3.96,
+        "uzunluk": 3.96,
+        "bilyamm": 50,
+        "hizCs": 71.7,
+        "hizDdakika": 15.6,
+        "astarCarp": 3.78
+    }, 
+
+    {
+        "sonHp": 1266,
+        "cap": 4.12,
+        "uzunluk": 3.96,
+        "bilyamm": 64,
+        "hizCs": 71.7,
+        "hizDdakika": 15.3,
+        "astarCarp": 3.93
+    },
+
+    {
+        "sonHp": 1464,
+        "cap": 4.27,
+        "uzunluk": 4.27,
+        "bilyamm": 64,
+        "hizCs": 70.7,
+        "hizDdakika": 14.8,
+        "astarCarp": 4.08
+    },
+
+    {
+        "sonHp": 1588,
+        "cap": 4.42,
+        "uzunluk": 4.27,
+        "bilyamm": 64,
+        "hizCs": 70.8,
+        "hizDdakika": 14.55,
+        "astarCarp": 4.24
+    },
+
+    {
+        "sonHp": 1817,
+        "cap": 4.57,
+        "uzunluk": 4.57,
+        "bilyamm": 64,
+        "hizCs": 69.8,
+        "hizDdakika": 14.1,
+        "astarCarp": 4.39
+    },
+
+    {
+        "sonHp": 1956,
+        "cap": 4.72,
+        "uzunluk": 4.57,
+        "bilyamm": 64,
+        "hizCs": 69.8,
+        "hizDdakika": 13.85,
+        "astarCarp": 4.54
+    },
+
+    {
+        "sonHp": 2217,
+        "cap": 4.88,
+        "uzunluk": 4.88,
+        "bilyamm": 64,
+        "hizCs": 68.9,
+        "hizDdakika": 13.45,
+        "astarCarp": 4.69
+    },
+
+    {
+        "sonHp": 2370,
+        "cap": 5.03,
+        "uzunluk": 4.88,
+        "bilyamm": 64,
+        "hizCs": 68.7,
+        "hizDdakika": 13.2,
+        "astarCarp": 4.85
+    },
+
+    {
+        "sonHp": 2764,
+        "cap": 5.18,
+        "uzunluk": 5.18,
+        "bilyamm": 75,
+        "hizCs": 68.7,
+        "hizDdakika": 13,
+        "astarCarp": 5
+    },
+
+    {
+        "sonHp": 2929,
+        "cap": 5.33,
+        "uzunluk": 5.18,
+        "bilyamm": 75,
+        "hizCs": 68.1,
+        "hizDdakika": 12.7,
+        "astarCarp": 5.15
+    },
+  
+
+
+]
+
+
 
 //temp placeholder filler
 $('#degirmenTur').val('bilyali')
@@ -357,6 +613,7 @@ function CalcMill() {
 
     hp = w * ef1 * ef2 * ef4 * ef5 * ef7 * ef8 * $('#beslemeton').val()
 
+    if ($('#degirmenTur option').filter(':selected').val() === 'cubuklu') {
 
     if (hp < 2000) {
         dividedHp = hp ; 
@@ -410,6 +667,11 @@ function CalcMill() {
             newCap = oran * closest.cap
         }
    }
+
+} else if ($('#degirmenTur option').filter(':selected').val() === 'bilyali'){
+
+    
+}
 
 
 
