@@ -3,7 +3,7 @@
 let w, ef8 = 1, ef1 = 1, ef4 = 1, rr, ef7 = 1, ef5 = 1, ef2 = 1, hp, dividedHp, fo, fb, bko=1, devredenYuk=1;
 let karestok , konikstok, yaricap , istinatstok ,v1 ,yaricap2, yaricap3 ,v2,v3 ,v4  ;
 let fbant, fbantgenislik, fbantagirlik , fbosbant , bantuzunluk , fbosbant2, fbosbant3, egim, hkotbant , fbantguc;
-let q1 , q2 , q3,q4,q5,q6,q7,q8,qt, mdegeri, e1,e2,kdegeri, tdegeri, firstc, cdegeri, elekalan;
+let q1 , q2 , q3 , q4 , q5 , q6 , q7, q8 ,qt , mdegeri, e1, e2, kdegeri, tdegeri, firstc, cdegeri, elekalan;
 const cubukBoyutData = [
     {
         "sonHp": 8,
