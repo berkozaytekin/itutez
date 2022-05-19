@@ -670,6 +670,45 @@ function CalcMill() {
 
 } else if ($('#degirmenTur option').filter(':selected').val() === 'bilyali'){
 
+    if (hp < 2929) {
+        dividedHp = hp ; 
+    
+    } else if (hp > 2929 && hp <= 2) {
+        dividedHp = hp / 2 ;
+      
+    } else if (hp > 4000 && hp <= 6000) {
+        dividedHp = hp / 3 ;
+     
+    } else if  (hp > 6000 && hp <= 8000) {
+        dividedHp = hp / 4 ;
+     
+    } else if (hp > 8000 && hp <= 10000) {
+        dividedHp = hp / 5 ;
+     
+    }else if  (hp > 10000 && hp <= 12000) {
+        dividedHp = hp / 6 ;
+    }else if  (hp > 12000 && hp <= 14000) {
+        dividedHp = hp / 7 ;
+    } else if  (hp > 14000 && hp <= 16000) {
+        dividedHp = hp / 8 ;
+    } else if  (hp > 16000 && hp <= 18000) {
+        dividedHp = hp / 9 ;
+    } else if  (hp > 18000 && hp <= 20000) {
+        dividedHp = hp / 10 ;
+    } else if  (hp > 20000 && hp <= 22000) {
+        dividedHp = hp / 11 ;
+    } else if  (hp > 22000 && hp <= 24000) {
+        dividedHp = hp / 12 ;
+    } else if  (hp > 24000 && hp <= 26000) {
+        dividedHp = hp / 13 ;
+    } else if  (hp > 26000 && hp <= 28000) {
+        dividedHp = hp / 14 ;
+    } else if  (hp > 28000 && hp <= 30000) {
+        dividedHp = hp / 15 ;
+    } 
+    else {
+        alert('Kataloglarda bu hp bulunmuyor!(30000HP üzeri)')
+    }
     
 }
 
