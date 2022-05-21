@@ -1,6 +1,6 @@
 
 
-let w, ef8 = 1, ef1 = 1, ef4 = 1, rr, ef7 = 1, ef5 = 1, ef2 = 1, hp, dividedHp, fo, fb, bko=1, devredenYuk=1;
+let w, ef8 = 1, ef1 = 1, ef4 = 1, rr, ef7 = 1, ef5 = 1, ef2 = 1, hp, dividedHp, fo, fb, bko=1, devredenYuk=1, degirmensayisi;
 let karestok , konikstok, yaricap , istinatstok ,v1 ,yaricap2, yaricap3 ,v2,v3 ,v4  ;
 let fbant, fbantgenislik, fbantagirlik , fbosbant , bantuzunluk , fbosbant2, fbosbant3, egim, hkotbant , fbantguc;
 let q1 , q2 , q3 , q4 , q5 , q6 , q7, q8 ,qt , mdegeri, e1, e2, kdegeri, tdegeri, firstc, cdegeri, elekalan;
@@ -616,40 +616,55 @@ function CalcMill() {
     if ($('#degirmenTur option').filter(':selected').val() === 'cubuklu') {
 
     if (hp < 2000) {
-        dividedHp = hp ; 
-    
+        dividedHp = hp 
+        degirmensayisi = 1; 
+        
     } else if (hp > 2000 && hp <= 4000) {
-        dividedHp = hp / 2 ;
+        dividedHp = hp / 2
+        degirmensayisi = 2 ;
       
     } else if (hp > 4000 && hp <= 6000) {
-        dividedHp = hp / 3 ;
+        dividedHp = hp / 3 
+        degirmensayisi = 3;
      
     } else if  (hp > 6000 && hp <= 8000) {
-        dividedHp = hp / 4 ;
+        dividedHp = hp / 4 
+        degirmensayisi = 4;
      
     } else if (hp > 8000 && hp <= 10000) {
-        dividedHp = hp / 5 ;
+        dividedHp = hp / 5
+        degirmensayisi = 5 ;
      
     }else if  (hp > 10000 && hp <= 12000) {
-        dividedHp = hp / 6 ;
+        dividedHp = hp / 6
+        degirmensayisi = 6 ;
     }else if  (hp > 12000 && hp <= 14000) {
-        dividedHp = hp / 7 ;
+        dividedHp = hp / 7
+        degirmensayisi = 7 ;
     } else if  (hp > 14000 && hp <= 16000) {
-        dividedHp = hp / 8 ;
+        dividedHp = hp / 8 
+        degirmensayisi = 8;
     } else if  (hp > 16000 && hp <= 18000) {
-        dividedHp = hp / 9 ;
+        dividedHp = hp / 9
+        degirmensayisi = 9 ;
     } else if  (hp > 18000 && hp <= 20000) {
-        dividedHp = hp / 10 ;
+        dividedHp = hp / 10
+        degirmensayisi = 10 ;
     } else if  (hp > 20000 && hp <= 22000) {
-        dividedHp = hp / 11 ;
+        dividedHp = hp / 11
+        degirmensayisi = 11 ;
     } else if  (hp > 22000 && hp <= 24000) {
-        dividedHp = hp / 12 ;
+        dividedHp = hp / 12
+        degirmensayisi = 12 ;
     } else if  (hp > 24000 && hp <= 26000) {
-        dividedHp = hp / 13 ;
+        dividedHp = hp / 13
+        degirmensayisi = 13 ;
     } else if  (hp > 26000 && hp <= 28000) {
-        dividedHp = hp / 14 ;
+        dividedHp = hp / 14
+        degirmensayisi = 14 ;
     } else if  (hp > 28000 && hp <= 30000) {
-        dividedHp = hp / 15 ;
+        dividedHp = hp / 15
+        degirmensayisi = 15 ;
     } 
     else {
         alert('Kataloglarda bu hp bulunmuyor!(30000HP üzeri)')
@@ -659,57 +674,125 @@ function CalcMill() {
     Math.abs(dividedHp - obj.sonHp) < Math.abs(dividedHp - acc.sonHp) ? obj : acc
  );
  
-    let oran, newUzunluk, newCap;
+    let oran, newUzunluk, newCap, newAstarCap, newCubukUzunluk, newHizCs, newCubukSarjAgir;
     if(closest){
        oran = dividedHp / closest.sonHp
         if(oran) {
             newUzunluk = oran * closest.uzunluk
             newCap = oran * closest.cap
+            newAstarCap = oran * closest.astarCarp
+            newCubukUzunluk = oran * closest.cubukUzunluk
+            newHizCs= oran * closest.hizCs
+            newCubukSarjAgir = oran * closest.cubukSarjAgir
         }
+
+        var form = document.createElement("div");
+    form.innerHTML = `
+                    1 Değirmen İçin Gereken Motor Gücü: ${dividedHp.toFixed(2)} hp
+                    <br>
+                    Gereken Toplam Değirmen Sayısı: ${degirmensayisi} 
+                    <br>
+                    Uzunluk: ${newUzunluk.toFixed(2)} m
+                    <br>
+                    Çap: ${newCap.toFixed(2)} m
+                    <br>
+                    Astarlar Arası Çap: ${newAstarCap.toFixed(2)} m
+                    <br>
+                    Hız Cs: ${newHizCs.toFixed(2)} 
+                    <br>
+                    Çubuk Uzunluğu: ${newCubukUzunluk.toFixed(2)} m
+                    <br>
+                    Çubuk Şarj Ağırlığı: ${newCubukSarjAgir.toFixed(2)} t
+                `
+    swal({
+        title: 'Sonuç',
+        content: form
+    })
    }
 
+  
 } else if ($('#degirmenTur option').filter(':selected').val() === 'bilyali'){
 
     if (hp < 2929) {
-        dividedHp = hp ; 
+        dividedHp = hp
+        degirmensayisi = 1 ; 
     
-    } else if (hp > 2929 && hp <= 2) {
-        dividedHp = hp / 2 ;
+    } else if (hp > 2929 && hp <= 5858) {
+        dividedHp = hp / 2
+        degirmensayisi = 2 ;
       
-    } else if (hp > 4000 && hp <= 6000) {
-        dividedHp = hp / 3 ;
+    } else if (hp > 5858 && hp <= 8787) {
+        dividedHp = hp / 3 
+        degirmensayisi = 3;
      
-    } else if  (hp > 6000 && hp <= 8000) {
-        dividedHp = hp / 4 ;
+    } else if  (hp > 8787 && hp <= 11692) {
+        dividedHp = hp / 4
+        degirmensayisi = 4 ;
      
-    } else if (hp > 8000 && hp <= 10000) {
-        dividedHp = hp / 5 ;
+    } else if (hp > 11692 && hp <= 14615) {
+        dividedHp = hp / 5
+        degirmensayisi = 5 ;
      
-    }else if  (hp > 10000 && hp <= 12000) {
-        dividedHp = hp / 6 ;
-    }else if  (hp > 12000 && hp <= 14000) {
-        dividedHp = hp / 7 ;
-    } else if  (hp > 14000 && hp <= 16000) {
-        dividedHp = hp / 8 ;
-    } else if  (hp > 16000 && hp <= 18000) {
-        dividedHp = hp / 9 ;
-    } else if  (hp > 18000 && hp <= 20000) {
-        dividedHp = hp / 10 ;
-    } else if  (hp > 20000 && hp <= 22000) {
-        dividedHp = hp / 11 ;
-    } else if  (hp > 22000 && hp <= 24000) {
-        dividedHp = hp / 12 ;
-    } else if  (hp > 24000 && hp <= 26000) {
-        dividedHp = hp / 13 ;
-    } else if  (hp > 26000 && hp <= 28000) {
-        dividedHp = hp / 14 ;
-    } else if  (hp > 28000 && hp <= 30000) {
-        dividedHp = hp / 15 ;
+    }else if  (hp > 14615 && hp <= 17544) {
+        dividedHp = hp / 6
+        degirmensayisi = 6 ;
+    }else if  (hp > 17544 && hp <= 20461) {
+        dividedHp = hp / 7
+        degirmensayisi = 7 ;
+    } else if  (hp > 20461 && hp <= 23384) {
+        dividedHp = hp / 8
+        degirmensayisi = 8 ;
+    } else if  (hp > 23384 && hp <= 26307) {
+        dividedHp = hp / 9
+        degirmensayisi = 9 ;
+    } else if  (hp > 26307 && hp <= 29290) {
+        dividedHp = hp / 10
+        degirmensayisi = 10 ;
     } 
     else {
         alert('Kataloglarda bu hp bulunmuyor!(30000HP üzeri)')
     }
     
+    var closest = bilyaBoyutData.reduce((acc, obj) =>
+    Math.abs(dividedHp - obj.sonHp) < Math.abs(dividedHp - acc.sonHp) ? obj : acc
+ );
+ 
+    let oran, newUzunluk, newCap, newAstarCap, newBilyamm, newHizCs;
+    if(closest){
+       oran = dividedHp / closest.sonHp
+        if(oran) {
+            newUzunluk = oran * closest.uzunluk
+            newCap = oran * closest.cap
+            newAstarCap = oran * closest.astarCarp
+            newBilyamm = oran * closest.bilyamm
+            newHizCs= oran * closest.hizCs
+            
+        }
+   }
+
+   var form = document.createElement("div");
+    form.innerHTML = `
+                    1 Değirmen İçin Gereken Motor Gücü: ${dividedHp.toFixed(2)} hp
+                    <br>
+                    Gereken Toplam Değirmen Sayısı: ${degirmensayisi} 
+                    <br>
+                    Çap: ${newCap.toFixed(2)} m
+                    <br>
+                    Uzunluk: ${newUzunluk.toFixed(2)} m
+                    <br>
+                    Astarlar Arası Çap: ${newAstarCap.toFixed(2)} m
+                    <br>
+                    Hız Cs: ${newHizCs.toFixed(2)} 
+                    <br>
+                    Bilya Çapı: ${newBilyamm.toFixed(2)} mm
+                `
+    swal({
+        title: 'Sonuç',
+        content: form
+    })
+
+}else{
+    alert('Otojen Değirmen Henüz Yapılmadı')
 }
 
 
@@ -729,7 +812,9 @@ function CalcMill() {
     console.log('diviededhp' , dividedHp)
     var form = document.createElement("div");
     form.innerHTML = `
-                    Gereken Toplam Motor Gücü: ${dividedHp.toFixed(2)} hp
+                    1 Değirmen İçin Gereken Motor Gücü: ${dividedHp.toFixed(2)} hp
+                    <br>
+                    Gereken Toplam Değirmen Sayısı: ${degirmensayisi} 
                     <br>
                     Çap: ${newCap.toFixed(2)} m
                     <br>
