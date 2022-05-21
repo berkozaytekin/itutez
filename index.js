@@ -1,6 +1,6 @@
 
 
-let w, ef8 = 1, ef1 = 1, ef4 = 1, rr, ef7 = 1, ef5 = 1, ef2 = 1, hp, dividedHp, fo, fb, bko=1, devredenYuk=1, degirmensayisi;
+let w, ef8 = 1, ef1 = 1, ef4 = 1, rr, ef7 = 1, ef5 = 1, ef2 = 1, hp, dividedHp, fo, fb, bko=1, devredenYuk=1, degirmensayisi,otojenw,otojenkw, otojentopkw, otojeny, otojenc, otojenUzunluk, otojenCap;
 let karestok , konikstok, yaricap , istinatstok ,v1 ,yaricap2, yaricap3 ,v2,v3 ,v4  ;
 let fbant, fbantgenislik, fbantagirlik , fbosbant , bantuzunluk , fbosbant2, fbosbant3, egim, hkotbant , fbantguc;
 let q1 , q2 , q3 , q4 , q5 , q6 , q7, q8 ,qt , mdegeri, e1, e2, kdegeri, tdegeri, firstc, cdegeri, elekalan;
@@ -792,7 +792,31 @@ function CalcMill() {
     })
 
 }else{
-    alert('Otojen Değirmen Henüz Yapılmadı')
+    otojenw = (10 * $('#isindeks').val() * ((1 / Math.sqrt(75) - (1 / Math.sqrt($('#beslenengecenboyut').val())))))
+    otojenkw = ( w * $('#fSagOtojen').val()) - otojenw
+    otojentopkw = otojenkw * $('#beslemeton').val()
+    if(otojentopkw > 180 && otojentopkw <= 2000){
+        otojeny = 3.7
+        otojenc = 0.25
+    }else{
+        otojeny = 3.48
+        otojenc = 0.25
+    }
+    otojenCap = Math.pow((otojentopkw * $('#otojendl').val() * otojenc), 1/otojeny)
+    otojenUzunluk = otojenCap / $('#otojendl').val()
+
+    var form = document.createElement("div");
+    form.innerHTML = `
+                    Otojen Değirmen İçin Gereken Motor Gücü: ${otojentopkw.toFixed(2)} kW
+                    <br>
+                    Çap: ${otojenCap.toFixed(2)} m
+                    <br>
+                    Uzunluk: ${otojenUzunluk.toFixed(2)} m
+                `
+    swal({
+        title: 'Sonuçlar',
+        content: form
+    })
 }
 
 
@@ -810,20 +834,7 @@ function CalcMill() {
     console.log('ton', $('#beslemeton').val())
     console.log('hp' , hp)
     console.log('diviededhp' , dividedHp)
-    var form = document.createElement("div");
-    form.innerHTML = `
-                    1 Değirmen İçin Gereken Motor Gücü: ${dividedHp.toFixed(2)} hp
-                    <br>
-                    Gereken Toplam Değirmen Sayısı: ${degirmensayisi} 
-                    <br>
-                    Çap: ${newCap.toFixed(2)} m
-                    <br>
-                    Uzunluk: ${newUzunluk.toFixed(2)} m
-                `
-    swal({
-        title: 'Sonuç',
-        content: form
-    })
+    
     
 }
 
