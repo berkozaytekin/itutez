@@ -1183,14 +1183,7 @@ $('#calcBtnElek').on('click', () => {
 });
 
 
-$('#degirmenTur').on('change', () => {
-    if ($('#degirmenTur option').filter(':selected').val() === 'cubuklu') {
 
-        $('#tekmibilyaliylami').removeAttr("disabled");
-    } else {
-        $('#tekmibilyaliylami').attr("disabled", "disabled");
-    }
-});
 $('#stoktip').on('change', () => {
     if ($('#stoktip option').filter(':selected').val() === 'kare') {
 
@@ -1295,5 +1288,21 @@ $('#istinatvaryok').on('change', () => {
         $('#eskiDuvarHeight').removeAttr("disabled");
     } else {
         $('#eskiDuvarHeight').attr("disabled", "disabled");
+    }
+});
+$('#degirmenTur').on('change', () => {
+    if ($('#degirmenTur option').filter(':selected').val() === 'otojen') {
+
+        $('#otojendl').removeAttr("disabled");
+    } else {
+        $('#otojendl').attr("disabled", "disabled");
+    }
+});
+$('#degirmenTur').on('change', () => {
+    if ($('#degirmenTur option').filter(':selected').val() === 'otojen') {
+
+        $('#fSagOtojen').removeAttr("disabled");
+    } else {
+        $('#fSagOtojen').attr("disabled", "disabled");
     }
 });
