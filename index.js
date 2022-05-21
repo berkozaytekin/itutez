@@ -705,7 +705,7 @@ function CalcMill() {
                     Çubuk Şarj Ağırlığı: ${newCubukSarjAgir.toFixed(2)} t
                 `
     swal({
-        title: 'Sonuç',
+        title: 'Sonuçlar',
         content: form
     })
    }
@@ -787,7 +787,7 @@ function CalcMill() {
                     Bilya Çapı: ${newBilyamm.toFixed(2)} mm
                 `
     swal({
-        title: 'Sonuç',
+        title: 'Sonuçlar',
         content: form
     })
 
@@ -1139,7 +1139,7 @@ function CalcCrusherr(){
                         Motor Gücü: ${fbantguc.toFixed(2)} hp
                     `
         swal({
-            title: 'Sonuc',
+            title: 'Sonuçlar',
             content: form
         })
     }
