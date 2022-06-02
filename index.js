@@ -507,51 +507,63 @@ const bilyaBoyutData = [
 
 
 //temp placeholder filler
-$('#degirmenTur').val('bilyali')
-$('#devretip').val('kapalidevre')
-$('#ogutmeortam').val('yasogutme')
-$('#isindeks').val(14.7)
-$('#beslemeton').val(150)
-$('#beslenengecenboyut').val(2400)
-$('#beslenenyogunluk').val(2.8)
-$('#degirmencikisboyut').val(53)
-$('#degirmencikisboyutpercent').val(1.2)
-$('#degirmencikisd80').val(53)
-$('#otojendl').val(2)
-$('#fSagOtojen').val(1.2)
-$('#stoktip').val('konik')
-$('#sevacisi').val(30)
-$('#stokYukseklik').val(3)
-$('#istinatvaryok').val('istinatvar')
-$('#bulkyogunluk').val(1.8)
-$('#duvarHeight').val(3)
-$('#newstokYukseklik').val(6)
-$('#stokUzunluk').val(40)
-$('#maksparcaboyut').val(50)
-$('#elekaltiboyut').val(45)
-$('#besleneneton').val(300)
-$('#hedefboyut').val(3)
-$('#beslenenkirilmamis').val(80)
-$('#elekverim').val('1.2')
-$('#besleneneu').val(30)
-$('#cikaneu').val(25)
-$('#yogunluk').val(2.3)
-$('#kapasite').val(180)
-$('#verim').val('1')
-$('#nem').val('0.85')
-$('#tanetip').val('0.9')
-$('#elekacikligi').val('54.5')
-$('#elekustu').val(43)
-$('#elekyari').val(42)
-$('#elekegim').val('1')
-$('#elekacikliktip').val('1')
-$('#elektip').val('1')
-$('#beslemeBant').val(400)
-$('#egimBant').val(16)
-$('#malzemeBulk').val('1.6')
-$('#konveyorHiz').val('2.25')
-$('#bantUzunluk').val(30)
+ $('#degirmenTur').val('bilyali')
+// $('#devretip').val('kapalidevre')
+// $('#ogutmeortam').val('yasogutme')
+// $('#isindeks').val(14.7)
+// $('#beslemeton').val(150)
+// $('#beslenengecenboyut').val(2400)
+// $('#beslenenyogunluk').val(2.8)
+// $('#degirmencikisboyut').val(53)
+// $('#degirmencikisboyutpercent').val(1.2)
+// $('#degirmencikisd80').val(53)
+// $('#otojendl').val(2)
+// $('#fSagOtojen').val(1.2)
+ $('#stoktip').val('konik')
+// $('#sevacisi').val(30)
+// $('#stokYukseklik').val(3)
+$('#istinatvaryok').val('istinatyok')
+// $('#bulkyogunluk').val(1.8)
+// $('#duvarHeight').val(3)
+// $('#newstokYukseklik').val(6)
+// $('#stokUzunluk').val(40)
+// $('#maksparcaboyut').val(50)
+// $('#elekaltiboyut').val(45)
+// $('#besleneneton').val(300)
+// $('#hedefboyut').val(3)
+// $('#beslenenkirilmamis').val(80)
+// $('#elekverim').val('1.2')
+// $('#besleneneu').val(30)
+// $('#cikaneu').val(25)
+// $('#yogunluk').val(2.3)
+// $('#kapasite').val(180)
+// $('#verim').val('1')
+// $('#nem').val('0.85')
+// $('#tanetip').val('0.9')
+// $('#elekacikligi').val('54.5')
+// $('#elekustu').val(43)
+// $('#elekyari').val(42)
+// $('#elekegim').val('1')
+// $('#elekacikliktip').val('1')
+// $('#elektip').val('1')
+// $('#beslemeBant').val(400)
+// $('#egimBant').val(16)
+// $('#malzemeBulk').val('1.6')
+// $('#konveyorHiz').val('2.25')
+// $('#bantUzunluk').val(30)
 
+
+
+$(document).ready(function(){
+    
+    $('#degirmenTur option').trigger("change");
+    $('#stoktip option').trigger("change");
+    $('#istinatvaryok option').trigger("change");
+    
+    
+    });
+
+    
 
 function CalcMill() {
 
@@ -968,7 +980,7 @@ function CalcElek(){
 }
 
 function CalcCrusher(){
-   bko = $('#elekaltiboyut').val() / $('#hedefboyut').val()
+   bko = $('#maksparcaboyut').val() / $('#hedefboyut').val()
    console.log('bko:', bko)
    var form = document.createElement("div");
     form.innerHTML = `
@@ -984,7 +996,7 @@ function CalcCrusher(){
 
 function CalcCrusherr(){
 
-    devredenYuk= $('#beslenenkirilmamis').val() * ($('#besleneneu').val()/ (1-($('#cikaneu').val() /  $('#elekverim').val() )))
+    devredenYuk= $('#beslenenkirilmamis').val() * (($('#besleneneu').val()/100)/ (1-(($('#cikaneu').val()/100) /  ($('#elekverim').val()/100) )))
     console.log('devredenYuk:', devredenYuk)
     
 
@@ -1222,122 +1234,198 @@ $('#calcBtnElek').on('click', () => {
 $('#stoktip').on('change', () => {
     if ($('#stoktip option').filter(':selected').val() === 'kare') {
 
-        $('#kareSevAcisi').removeAttr("disabled");
+        $('#kareSevAcisi').removeAttr("hidden");
+        $('label[for="kareSevAcisi"]').removeAttr("hidden");
+        
     } else {
-        $('#kareSevAcisi').attr("disabled", "disabled");
+        $('#kareSevAcisi').attr("hidden", "hidden");
+        $('label[for="kareSevAcisi"]').attr("hidden", "hidden");
     }
 });
 $('#stoktip').on('change', () => {
     if ($('#stoktip option').filter(':selected').val() === 'konik') {
 
-        $('#sevacisi').removeAttr("disabled");
+        $('#sevacisi').removeAttr("hidden");
+        $('label[for="sevacisi"]').removeAttr("hidden");
     } else {
-        $('#sevacisi').attr("disabled", "disabled");
+        $('#sevacisi').attr("hidden", "hidden");
+        $('label[for="sevacisi"]').attr("hidden", "hidden");
     }
 });
 $('#stoktip').on('change', () => {
     if ($('#stoktip option').filter(':selected').val() === 'kare') {
 
-        $('#kenarUzunluk').removeAttr("disabled");
+        $('#kenarUzunluk').removeAttr("hidden");
+        $('label[for="kenarUzunluk"]').removeAttr("hidden");
     } else {
-        $('#kenarUzunluk').attr("disabled", "disabled");
+        $('#kenarUzunluk').attr("hidden", "hidden");
+        $('label[for="kenarUzunluk"]').attr("hidden", "hidden");
     }
 });
 $('#stoktip').on('change', () => {
     if ($('#stoktip option').filter(':selected').val() === 'konik') {
 
-        $('#stokYukseklik').removeAttr("disabled");
+        $('#stokYukseklik').removeAttr("hidden");
+        $('label[for="stokYukseklik"]').removeAttr("hidden");
     } else {
-        $('#stokYukseklik').attr("disabled", "disabled");
+        $('#stokYukseklik').attr("hidden", "hidden");
+        $('label[for="stokYukseklik"]').attr("hidden", "hidden");
     }
 });
 $('#stoktip').on('change', () => {
     if ($('#stoktip option').filter(':selected').val() === 'konik') {
 
-        $('#duvarHeight').removeAttr("disabled");
+        $('#duvarHeight').removeAttr("hidden");
+        $('label[for="duvarHeight"]').removeAttr("hidden");
     } else {
-        $('#duvarHeight').attr("disabled", "disabled");
+        $('#duvarHeight').attr("hidden", "hidden");
+        $('label[for="duvarHeight"]').attr("hidden", "hidden");
     }
 });
 $('#stoktip').on('change', () => {
     if ($('#stoktip option').filter(':selected').val() === 'konik') {
 
-        $('#stokUzunluk').removeAttr("disabled");
+        $('#stokUzunluk').removeAttr("hidden");
+        $('label[for="stokUzunluk"]').removeAttr("hidden");
     } else {
-        $('#stokUzunluk').attr("disabled", "disabled");
+        $('#stokUzunluk').attr("hidden", "hidden");
+        $('label[for="stokUzunluk"]').attr("hidden", "hidden");
     }
 });
 $('#stoktip').on('change', () => {
     if ($('#stoktip option').filter(':selected').val() === 'konik') {
 
-        $('#istinatvaryok').removeAttr("disabled");
+        $('#istinatvaryok').removeAttr("hidden");
+        $('label[for="istinatvaryok"]').removeAttr("hidden");
     } else {
-        $('#istinatvaryok').attr("disabled", "disabled");
+        $('#istinatvaryok').attr("hidden", "hidden");
+        $('label[for="istinatvaryok"]').attr("hidden", "hidden");
     }
 });
 
 $('#stoktip').on('change', () => {
     if ($('#stoktip option').filter(':selected').val() === 'konik') {
 
-        $('#newstokYukseklik').removeAttr("disabled");
+        $('#newstokYukseklik').removeAttr("hidden");
+        $('label[for="newstokYukseklik"]').removeAttr("hidden");
     } else {
-        $('#newstokYukseklik').attr("disabled", "disabled");
+        $('#newstokYukseklik').attr("hidden", "hidden");
+        $('label[for="newstokYukseklik"]').attr("hidden", "hidden");
     }
 });
 $('#stoktip').on('change', () => {
     if ($('#stoktip option').filter(':selected').val() === 'konik') {
 
-        $('#newstokUzunluk').removeAttr("disabled");
+        $('#stokUzunluk').removeAttr("hidden");
+        $('label[for="stokUzunluk"]').removeAttr("hidden");
     } else {
-        $('#newstokUzunluk').attr("disabled", "disabled");
+        $('#stokUzunluk').attr("hidden", "hidden");
+        $('label[for="stokUzunluk"]').attr("hidden", "hidden");
     }
 });
 
 $('#istinatvaryok').on('change', () => {
     if ($('#istinatvaryok option').filter(':selected').val() === 'istinatvar') {
 
-        $('#duvarHeight').removeAttr("disabled");
+        $('#duvarHeight').removeAttr("hidden");
+        $('label[for="duvarHeight"]').removeAttr("hidden");
     } else {
-        $('#duvarHeight').attr("disabled", "disabled");
+        $('#duvarHeight').attr("hidden", "hidden");
+        $('label[for="duvarHeight"]').attr("hidden", "hidden");
     }
 });
 $('#istinatvaryok').on('change', () => {
     if ($('#istinatvaryok option').filter(':selected').val() === 'istinatvar') {
 
-        $('#newstokYukseklik').removeAttr("disabled");
+        $('#newstokYukseklik').removeAttr("hidden");
+        $('label[for="newstokYukseklik"]').removeAttr("hidden");
     } else {
-        $('#newstokYukseklik').attr("disabled", "disabled");
+        $('#newstokYukseklik').attr("hidden", "hidden");
+        $('label[for="newstokYukseklik"]').attr("hidden", "hidden");
     }
 });
 $('#istinatvaryok').on('change', () => {
     if ($('#istinatvaryok option').filter(':selected').val() === 'istinatvar') {
 
-        $('#newstokUzunluk').removeAttr("disabled");
+        $('#stokUzunluk').removeAttr("hidden");
+        $('label[for="stokUzunluk"]').removeAttr("hidden");
     } else {
-        $('#newstokUzunluk').attr("disabled", "disabled");
+        $('#stokUzunluk').attr("hidden", "hidden");
+        $('label[for="stokUzunluk"]').attr("hidden", "hidden");
     }
 });
 $('#istinatvaryok').on('change', () => {
     if ($('#istinatvaryok option').filter(':selected').val() === 'istinatvar') {
 
-        $('#eskiDuvarHeight').removeAttr("disabled");
+        $('#eskiDuvarHeight').removeAttr("hidden");
+        $('label[for="eskiDuvarHeight"]').removeAttr("hidden");
     } else {
-        $('#eskiDuvarHeight').attr("disabled", "disabled");
+        $('#eskiDuvarHeight').attr("hidden", "hidden");
+        $('label[for="eskiDuvarHeight"]').attr("hidden", "hidden");
+    }
+});
+
+$('#degirmenTur').on('change', () => {
+    if ($('#degirmenTur option').filter(':selected').val() === 'otojen') {
+
+        $('#otojendl').removeAttr("hidden");
+        $('label[for="otojendl"]').removeAttr("hidden");
+    } else {
+        $('#otojendl').attr("hidden", "hidden");
+        $('label[for="otojendl"]').attr("hidden", "hidden");
     }
 });
 $('#degirmenTur').on('change', () => {
     if ($('#degirmenTur option').filter(':selected').val() === 'otojen') {
 
-        $('#otojendl').removeAttr("disabled");
+        $('#fSagOtojen').removeAttr("hidden");
+        $('label[for="fSagOtojen"]').removeAttr("hidden");
+        
     } else {
-        $('#otojendl').attr("disabled", "disabled");
+        $('#fSagOtojen').attr("hidden", "hidden");
+        $('label[for="fSagOtojen"]').attr("hidden", "hidden");
     }
 });
-$('#degirmenTur').on('change', () => {
-    if ($('#degirmenTur option').filter(':selected').val() === 'otojen') {
 
-        $('#fSagOtojen').removeAttr("disabled");
+$('#degirmenTur').on('change', () => {
+    if ($('#degirmenTur option').filter(':selected').val() === 'bilyali' || $('#degirmenTur option').filter(':selected').val() === 'cubuklu' ) {
+
+        $('#ogutmeortam').removeAttr("hidden");
+        $('label[for="ogutmeortam"]').removeAttr("hidden");
+
+        $('#devretip').removeAttr("hidden");
+        $('label[for="devretip"]').removeAttr("hidden");
+
+        $('#beslenenyogunluk').removeAttr("hidden");
+        $('label[for="beslenenyogunluk"]').removeAttr("hidden");
+
+        $('#degirmencikisboyutpercent').removeAttr("hidden");
+        $('label[for="degirmencikisboyutpercent"]').removeAttr("hidden");
+
+        $('#degirmencikisboyut').removeAttr("hidden");
+        $('label[for="degirmencikisboyut"]').removeAttr("hidden");
+
+        $('#degirmencikisd80').removeAttr("hidden");
+        $('label[for="degirmencikisd80"]').removeAttr("hidden");
+        
     } else {
-        $('#fSagOtojen').attr("disabled", "disabled");
+        $('#ogutmeortam').attr("hidden", "hidden");
+        $('label[for="ogutmeortam"]').attr("hidden", "hidden");
+
+        $('#devretip').attr("hidden", "hidden");
+        $('label[for="devretip"]').attr("hidden", "hidden");
+
+        $('#beslenenyogunluk').attr("hidden", "hidden");
+        $('label[for="beslenenyogunluk"]').attr("hidden", "hidden");
+
+        $('#degirmencikisboyutpercent').attr("hidden", "hidden");
+        $('label[for="degirmencikisboyutpercent"]').attr("hidden", "hidden");
+
+        $('#degirmencikisboyut').attr("hidden", "hidden");
+        $('label[for="degirmencikisboyut"]').attr("hidden", "hidden");
+
+        $('#degirmencikisd80').attr("hidden", "hidden");
+        $('label[for="degirmencikisd80"]').attr("hidden", "hidden");
     }
 });
+

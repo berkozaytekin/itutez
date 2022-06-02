@@ -26,9 +26,15 @@
                         <option value="kare">Dikdörtgen Stoklama</option>  
                     </select>
                 </div>
+
+                <div class="inputWrapper">
+                        <label for="bulkyogunluk">Malzemenin Bulk Yoğunluğu(ton/m^3)</label>
+                        <input type="number" id="bulkyogunluk" aria-describedby="bulkyogunluk"
+                            placeholder="Değer Giriniz" value="bulkyogunluk">
+                    </div>
                 
                 <div class="inputWrapper">
-                    <label for="sevacisi">Konik Stok Şev Açısı</label>
+                    <label for="sevacisi">Stok Şev Açısı</label>
                     <input type="number" id="sevacisi" aria-describedby="sevacisi" placeholder="Değer Giriniz">
                 </div>
 
@@ -36,11 +42,11 @@
                 
 
                 <div class="inputWrapper">
-                    <label for="stokYukseklik">Konik Stok Yüksekliği(m)</label>
+                    <label for="stokYukseklik">Stok Yüksekliği(m)</label>
                     <input type="number" id="stokYukseklik" aria-describedby="stokYukseklik" placeholder="Değer Giriniz">
                 </div>
                 <div class="inputWrapper">
-                    <label for="istinatvaryok">İstinat Duvarı Var mı?</label>
+                    <label for="istinatvaryok">Stok Alanında İstinat Duvarı Var mı?</label>
                     <select name="istinatvaryok" id="istinatvaryok" >
                         <option value="" disabled selected hidden></option>
                         <option value="istinatyok">Yok</option>
@@ -55,7 +61,7 @@
             <div class="outputInputImageWrapper">
                 <div class="machineInputWrapper">
                     <div class="inputWrapper">
-                        <label for="kareSevAcisi">Dikdörtgen Stok Şev Açısı</label>
+                        <label for="kareSevAcisi">Stok Şev Açısı</label>
                         <select name="kareSevAcisi" id="kareSevAcisi">
                             <option value="" disabled selected hidden></option>
                             <option value="3.409">40</option>
@@ -68,14 +74,9 @@
                         </select>
                     </div>
                     <div class="inputWrapper">
-                        <label for="kenarUzunluk">Dikdörtgen Stok Kenar Uzunluğu(m)</label>
+                        <label for="kenarUzunluk">Stok Kenar Uzunluğu(m)</label>
                         <input type="number" id="kenarUzunluk" aria-describedby="kenarUzunluk" placeholder="Değer Giriniz"
                         value="kenarUzunluk">
-                    </div>
-                    <div class="inputWrapper">
-                        <label for="bulkyogunluk">Bulk Yoğunluğu(ton/m^3)</label>
-                        <input type="number" id="bulkyogunluk" aria-describedby="bulkyogunluk"
-                            placeholder="Değer Giriniz" value="bulkyogunluk">
                     </div>
                     
                     
