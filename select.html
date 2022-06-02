@@ -62,29 +62,32 @@
             <div class="select-holder">
                 <select id="mobileMenuSelector" class="js-select">
                     <!-- <option value="" selected disabled hidden>seciniz</option> -->
-                    <option value="1">Stok Menüsü Bilgileri</option>
-                    <option value="2">Kırıcı Menüsü Bilgileri</option>
-                    <option value="3">Değirmen Menüsü Bilgileri</option>
-                    <option value="4"> Elek Menüsü Bilgileri</option>
-                    <option value="5">Bant Menüsü Bilgileri</option>
+                    <option value="1">Stok Alanı Hesaplama</option>
+                    <option value="2">Kırıcı Hesapları</option>
+                    <option value="3">Değirmen Boyutlandırma</option>
+                    <option value="4"> Elek Alanı Hesaplama</option>
+                    <option value="5">Bant Boyutlandırma</option>
                 </select>
                 <input type="text" class="js-fake-input">
                 <span>&#10094;</span>
             </div>
 
-            
+            <div class="mobImageWrapper">
+                <img class="menuItem beltItem" src="/images/belt.gif" alt="belt">
+                <img class="menuItem vibratingItem" src="/images/vibratingscreen.gif" alt="vibratingscreen">
+                <img class="menuItem ballmillItem" src="/images/ballmill.gif" alt="ballmill">
+                <img class="menuItem crusherItem crusherImg" src="/images/crusher.gif" alt="crusher">
+                <img class="menuItem truckItem truckImg" src="/images/truck.gif" alt="truck">
+            </div>
 
             <div class="detailsWrapper">
                 <p class="menuItem truckItem">
-                Uygulamada 2 çeşit stoklama tipi için gereken alan hesaplanabilir. Konik stoklamada stoklanacak malzemenin bulk yoğunluğu, stoğun şev
-            açısı, stok yüksekliği ve stok sahasında istinat duvarı olup olmadığı sorulur. Eğer istinat duvarı varsa istinat duvarı için gereken bilgiler 
-        de istenir. Diğer stoklama türü ise kapalı dikdörtgen stoklamadır. Seçilen tipe göre girilen bilgiler kullanılarak hesapla butonuyla ihtiyaç duyulan stok sahası alanı hesaplanır.</p>
+                   Stok Alanlarının Hesaplanması Tesisler İçin Önemlidir. Program Gireceğiniz Verilere Göre Uygun Stok Alanı Hesaplamanızı Yapabilir.
+                </p>
 
                 <p class="menuItem ballmillItem">
-                Öğütme koşulları, kapasite, besleme boyutları ve çıkış değerlerine göre uygun olan değirmen sayısı, motor güçleri, boyutları
-            kritik hızları hesaplanır. Toplamda 30000 hp üzeri enerji gerektirecek hesaplar yapılmaz. Bu durumda girdiğiniz bilgileri değiştirmeniz gerekmektedir.
-            Bilyalı ve çubuklu değirmenlerde d<sub>80</sub> değerinin yanı sıra "d" değerinin ve o değerden geçen boyutun sorulmasının sebebi farklı ef değerlerinin hesaplanması için gerekmesidir. Örneğin
-        d<sub>70</sub> seçildi ve sonraki inputta d<sub>70</sub> boyutu girildi,bu durumda d<sub>80</sub> boyutuna ayrı olarak ihtiyaç duyulmaktadır.</p>
+                   Bu Seçenekte 3 Farklı Değirmen Türünün(Çubuklu, Bilyalı ve Otojen) Boyutlandırma İşlemlerini Yapabilirsiniz. Program Gireceğiniz Verilere Göre Uygun Değirmen Tasarımınızı Yapabilir.
+                </p>
 
                 <p class="menuItem crusherItem">
                    Bu Alanda Kırıcıların Boyut Küçültme Oranlarını ve Devreden Yüklerini Gireceğiniz Verilere Göre Hesaplatabilirsiniz.
@@ -100,29 +103,43 @@
             </div>
 
             <div class="linkWrapper">
-                
-                <a href="/index.html" class="menuItem truckItem btn turquoiseBtn menuButton">
+                <a href="/stok.html" class="menuItem truckItem btn turquoiseBtn menuButton">
+                    Hesapla
+                </a>
+                <br>
+                <a href="/index.html" class="menuItem truckItem btn yellowBtn menuButton">
                     Ana Menü
                 </a>
 
-                
-                <a href="/index.html" class="menuItem crusherItem btn turquoiseBtn menuButton">
+                <a href="/kirici.html" class="menuItem crusherItem btn turquoiseBtn menuButton">
+                    Hesapla
+                </a>
+                <br>
+                <a href="/index.html" class="menuItem crusherItem btn yellowBtn menuButton">
                     Ana Menü
                 </a>
 
-                
-                <a href="/index.html" class="menuItem beltItem btn turquoiseBtn menuButton">
+                <a href="/bant.html" class="menuItem beltItem btn turquoiseBtn menuButton">
+                    Hesapla
+                </a>
+                <br>
+                <a href="/index.html" class="menuItem beltItem btn yellowBtn menuButton">
                     Ana Menü
                 </a>
 
-                
-               
-                <a href="/index.html" class="menuItem vibratingItem btn turquoiseBtn menuButton">
+                <a href="/elek.html" class="menuItem vibratingItem btn turquoiseBtn menuButton">
+                    Hesapla
+                </a>
+                <br>
+                <a href="/index.html" class="menuItem vibratingItem btn yellowBtn menuButton">
                     Ana Menü
                 </a>
 
-                
-                <a href="/index.html" class="menuItem ballmillItem btn turquoiseBtn menuButton">
+                <a href="/degirmen.html" class="menuItem ballmillItem btn turquoiseBtn menuButton">
+                    Hesapla
+                </a>
+                <br>
+                <a href="/index.html" class="menuItem ballmillItem btn yellowBtn menuButton">
                     Ana Menü
                 </a>
             </div>
