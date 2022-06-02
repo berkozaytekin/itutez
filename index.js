@@ -507,18 +507,18 @@ const bilyaBoyutData = [
 
 
 //temp placeholder filler
- $('#degirmenTur').val('bilyali')
-// $('#devretip').val('kapalidevre')
-// $('#ogutmeortam').val('yasogutme')
+$('#degirmenTur').val('bilyali')
+$('#devretip').val('kapalidevre')
+$('#ogutmeortam').val('yasogutme')
 // $('#isindeks').val(14.7)
 // $('#beslemeton').val(150)
-// $('#beslenengecenboyut').val(2400)
-// $('#beslenenyogunluk').val(2.8)
+//  $('#beslenengecenboyut').val(2400)
+//  $('#beslenenyogunluk').val(2.8)
 // $('#degirmencikisboyut').val(53)
-// $('#degirmencikisboyutpercent').val(1.2)
-// $('#degirmencikisd80').val(53)
-// $('#otojendl').val(2)
-// $('#fSagOtojen').val(1.2)
+//  $('#degirmencikisboyutpercent').val(1.2)
+//  $('#degirmencikisd80').val(53)
+//  $('#otojendl').val(2)
+//  $('#fSagOtojen').val(1.2)
  $('#stoktip').val('konik')
 // $('#sevacisi').val(30)
 // $('#stokYukseklik').val(3)
@@ -532,25 +532,27 @@ $('#istinatvaryok').val('istinatyok')
 // $('#besleneneton').val(300)
 // $('#hedefboyut').val(3)
 // $('#beslenenkirilmamis').val(80)
-// $('#elekverim').val('1.2')
+$('#elekverim').val('1.2')
 // $('#besleneneu').val(30)
 // $('#cikaneu').val(25)
 // $('#yogunluk').val(2.3)
 // $('#kapasite').val(180)
-// $('#verim').val('1')
-// $('#nem').val('0.85')
-// $('#tanetip').val('0.9')
-// $('#elekacikligi').val('54.5')
+$('#verim').val('1')
+$('#nem').val('0.85')
+$('#tanetip').val('0.9')
+$('#elekacikligi').val('54.5')
 // $('#elekustu').val(43)
 // $('#elekyari').val(42)
-// $('#elekegim').val('1')
-// $('#elekacikliktip').val('1')
-// $('#elektip').val('1')
+$('#elekegim').val('1')
+$('#elekacikliktip').val('1')
+$('#elektip').val('1')
 // $('#beslemeBant').val(400)
 // $('#egimBant').val(16)
-// $('#malzemeBulk').val('1.6')
-// $('#konveyorHiz').val('2.25')
+$('#malzemeBulk').val('1.6')
+$('#konveyorHiz').val('2.25')
 // $('#bantUzunluk').val(30)
+$('#kareSevAcisi').val('3.409')
+
 
 
 
@@ -568,7 +570,7 @@ $(document).ready(function(){
 function CalcMill() {
 
 
-
+   
 
     fo = (16000 * (Math.sqrt((13 / parseFloat($('#isindeks').val())))))
     fb = (4000 * (Math.sqrt((13 / parseFloat($('#isindeks').val())))))
@@ -659,8 +661,20 @@ function CalcMill() {
 
     hp = w * ef1 * ef2 * ef4 * ef5 * ef7 * ef8 * $('#beslemeton').val()
 
-    if ($('#degirmenTur option').filter(':selected').val() === 'cubuklu') {
+    if ($('#degirmenTur option').filter(':selected').val() === 'cubuklu' &&
+    $('#devretip').val() &&
+    $('#ogutmeortam').val() &&
+    $('#isindeks').val() &&
+    $('#beslemeton').val() &&
+    $('#beslenengecenboyut').val() &&
+    $('#beslenenyogunluk').val() &&
+    $('#degirmencikisboyut').val() &&
+    $('#degirmencikisboyutpercent').val() &&
+    $('#degirmencikisd80').val()) {
 
+        
+
+    
     if (hp < 2000) {
         dividedHp = hp 
         degirmensayisi = 1; 
@@ -713,7 +727,7 @@ function CalcMill() {
         degirmensayisi = 15 ;
     } 
     else {
-        alert('Kataloglarda bu hp bulunmuyor!(30000HP üzeri)')
+        swal('Kataloglarda 30000 hp ve üzeri bulunmuyor, girdiğiniz değerleri kontrol edin!')
     }
 
     var closest = cubukBoyutData.reduce((acc, obj) =>
@@ -754,10 +768,21 @@ function CalcMill() {
         title: 'Sonuçlar',
         content: form
     })
-   }
+
+}
+   
 
   
-} else if ($('#degirmenTur option').filter(':selected').val() === 'bilyali'){
+} else if ($('#degirmenTur option').filter(':selected').val() === 'bilyali' &&
+$('#devretip').val() &&
+    $('#ogutmeortam').val() &&
+    $('#isindeks').val() &&
+    $('#beslemeton').val() &&
+    $('#beslenengecenboyut').val() &&
+    $('#beslenenyogunluk').val() &&
+    $('#degirmencikisboyut').val() &&
+    $('#degirmencikisboyutpercent').val() &&
+    $('#degirmencikisd80').val() ){
 
     if (hp < 2929) {
         dividedHp = hp
@@ -796,7 +821,7 @@ function CalcMill() {
         degirmensayisi = 10 ;
     } 
     else {
-        alert('Kataloglarda bu hp bulunmuyor!(30000HP üzeri)')
+        swal('Kataloglarda 30000 hp ve üzeri bulunmuyor, girdiğiniz değerleri kontrol edin!')
     }
     
     var closest = bilyaBoyutData.reduce((acc, obj) =>
@@ -837,7 +862,12 @@ function CalcMill() {
         content: form
     })
 
-}else{
+}else if ($('#degirmenTur option').filter(':selected').val() === 'otojen' &&
+$('#isindeks').val() &&
+$('#beslemeton').val() &&
+$('#beslenengecenboyut').val() &&
+$('#otojendl').val() &&
+$('#fSagOtojen').val()){
     otojenw = (10 * $('#isindeks').val() * ((1 / Math.sqrt(75) - (1 / Math.sqrt($('#beslenengecenboyut').val())))))
     otojenkw = ( w * $('#fSagOtojen').val()) - otojenw
     otojentopkw = otojenkw * $('#beslemeton').val()
@@ -866,7 +896,9 @@ function CalcMill() {
     })
 }
 
-
+ else {
+    swal('İstenilen Tüm Değerleri Girmelisiniz')
+}
 
     console.log('fo', fo)
     console.log('fb', fb)
@@ -882,11 +914,24 @@ function CalcMill() {
     console.log('hp' , hp)
     console.log('diviededhp' , dividedHp)
     
-    
+
 }
 
 
 function CalcElek(){
+
+    if ( $('#yogunluk').val() &&
+     $('#kapasite').val() &&
+     $('#verim').val() &&
+     $('#nem').val() &&
+     $('#tanetip').val() &&
+     $('#elekacikligi').val() &&
+     $('#elekustu').val() &&
+     $('#elekyari').val() &&
+     $('#elekegim').val() &&
+     $('#elekacikliktip').val() &&
+     $('#elektip').val()){
+
     q1 = $('#yogunluk').val() / 2.7
     q2 = $('#elekacikligi option').filter(':selected').val() / 50
     q3 = $('#elekacikliktip option').filter(':selected').val()
@@ -974,12 +1019,16 @@ function CalcElek(){
             title: 'Gereken Elek Alanı',
             content: form
         })
-
+    }else {
+        swal('İstenilen Tüm Değerleri Girmelisiniz')
+    }
 
     
 }
 
 function CalcCrusher(){
+
+    if($('#maksparcaboyut').val() <= 200 && $('#maksparcaboyut').val() >= 0.5 && $('#hedefboyut').val() <= 200 && $('#hedefboyut').val() >= 0.5) {
    bko = $('#maksparcaboyut').val() / $('#hedefboyut').val()
    console.log('bko:', bko)
    var form = document.createElement("div");
@@ -991,11 +1040,14 @@ function CalcCrusher(){
         title: 'Boyut Küçültme Oranı',
         content: form
     })
+}else {
+    swal('İstenilen değerleri doğru giriniz.Maksimum kırma boyutları 200 mm ile 0.5 mm arasında olabilir.')
+}
  }
   
 
 function CalcCrusherr(){
-
+    if($('#beslenenkirilmamis').val() && $('#besleneneu').val() && $('#cikaneu').val() && $('#elekverim').val()) {
     devredenYuk= $('#beslenenkirilmamis').val() * (($('#besleneneu').val()/100)/ (1-(($('#cikaneu').val()/100) /  ($('#elekverim').val()/100) )))
     console.log('devredenYuk:', devredenYuk)
     
@@ -1009,6 +1061,9 @@ function CalcCrusherr(){
         title: 'Devreden Yük',
         content: form
     })
+} else {
+    swal('İstenilen Tüm Değerleri Girmelisiniz')
+}
  }
  function CalcStok(){
      
@@ -1057,7 +1112,10 @@ function CalcCrusherr(){
         console.log('v4', v4)
         console.log('istinatstok', istinatstok)
 
-        if(karestok && $('#stoktip option').filter(':selected').val() === 'kare') {
+        if(karestok && $('#stoktip option').filter(':selected').val() === 'kare' &&
+        $('#kareSevAcisi').val() &&
+        $('#bulkyogunluk').val() &&
+        $('#kenarUzunluk').val()) {
             var form = document.createElement("div");
             form.innerHTML = `  
                                  ${karestok.toFixed(2)} m<sup>3</sup>
@@ -1066,7 +1124,12 @@ function CalcCrusherr(){
                 title: 'Stok Miktarı',
                 content: form
             })
-        } else if(konikstok && $('#stoktip option').filter(':selected').val() === 'konik' && $('#istinatvaryok option').filter(':selected').val()  === 'istinatyok') {
+        } else if(konikstok && $('#stoktip option').filter(':selected').val() === 'konik' && 
+        $('#istinatvaryok option').filter(':selected').val()  === 'istinatyok' &&
+        $('#bulkyogunluk').val() && 
+        $('#sevacisi').val() && 
+        $('#stokYukseklik').val()
+         ) {
 
             var form = document.createElement("div");
             form.innerHTML = `  
@@ -1077,7 +1140,15 @@ function CalcCrusherr(){
                 content: form
             })
 
-        }else{
+        }else if (konikstok && $('#stoktip option').filter(':selected').val() === 'konik' && 
+        $('#istinatvaryok option').filter(':selected').val()  === 'istinatvar' &&
+        $('#bulkyogunluk').val() && 
+        $('#sevacisi').val() && 
+        $('#stokYukseklik').val() &&
+        $('#duvarHeight').val() && 
+        $('#newstokYukseklik').val() && 
+        $('#stokUzunluk').val()
+        ){
             var form = document.createElement("div");
             form.innerHTML = `  
                                  ${istinatstok.toFixed(2)} m<sup>3</sup>
@@ -1086,6 +1157,8 @@ function CalcCrusherr(){
                 title: 'Stok Miktarı',
                 content: form
             })
+        } else {
+            swal('İstenilen Tüm Değerleri Girmelisiniz')
         }
 
 
@@ -1097,6 +1170,12 @@ function CalcCrusherr(){
 
     
     //swal("Devreden Yük: " +devredenYuk)
+
+    if ($('#beslemeBant').val() &&
+    $('#egimBant').val() &&
+    $('#malzemeBulk').val() &&
+    $('#konveyorHiz').val() &&
+    $('#bantUzunluk').val()) {
 
     fbant = $('#beslemeBant').val() / (3600 * $('#konveyorHiz option').filter(':selected').val()*$('#malzemeBulk option').filter(':selected').val())
     console.log('fbant:', fbant)
@@ -1200,12 +1279,15 @@ function CalcCrusherr(){
             title: 'Sonuçlar',
             content: form
         })
+        
     }
 
 
 
 
-    
+} else {
+    swal('İstenilen Bütün Değerleri Girmelisiniz')
+} 
  }
 
 $('#calcBtn').on('click', () => {
