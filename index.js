@@ -1041,7 +1041,7 @@ function CalcCrusher(){
         content: form
     })
 }else {
-    swal('İstenilen değerleri doğru giriniz.Maksimum kırma boyutları 200 mm ile 0.5 mm arasında olabilir.')
+    swal('İstenilen değerleri eksiksiz giriniz.Maksimum kırma boyutları 200 mm ile 0.5 mm arasında olabilir.')
 }
  }
   
