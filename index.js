@@ -1114,7 +1114,6 @@ function CalcCrusherr(){
 
         if(karestok && $('#stoktip option').filter(':selected').val() === 'kare' &&
         $('#kareSevAcisi').val() &&
-        $('#bulkyogunluk').val() &&
         $('#kenarUzunluk').val()) {
             var form = document.createElement("div");
             form.innerHTML = `  
