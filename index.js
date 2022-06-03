@@ -522,7 +522,7 @@ $('#ogutmeortam').val('yasogutme')
  $('#stoktip').val('konik')
 // $('#sevacisi').val(30)
 // $('#stokYukseklik').val(3)
-$('#istinatvaryok').val('istinatyok')
+$('#istinatvaryok').val('istinatvar')
 // $('#bulkyogunluk').val(1.8)
 // $('#duvarHeight').val(3)
 // $('#newstokYukseklik').val(6)
@@ -1067,7 +1067,7 @@ function CalcCrusherr(){
  }
  function CalcStok(){
      
-    
+   
     
     if( parseFloat($('#kareSevAcisi option').filter(':selected').val()) == 3.409) {
         karestok = parseFloat($('#kareSevAcisi option').filter(':selected').val()) * Math.pow(parseFloat($('#kenarUzunluk').val() /2),3) * Math.tan(40 * Math.PI / 180);
@@ -1352,6 +1352,16 @@ $('#stoktip').on('change', () => {
     } else {
         $('#stokYukseklik').attr("hidden", "hidden");
         $('label[for="stokYukseklik"]').attr("hidden", "hidden");
+    }
+});
+$('#stoktip').on('change', () => {
+    if ($('#stoktip option').filter(':selected').val() === 'konik') {
+
+        $('#bulkyogunluk').removeAttr("hidden");
+        $('label[for="bulkyogunluk"]').removeAttr("hidden");
+    } else {
+        $('#bulkyogunluk').attr("hidden", "hidden");
+        $('label[for="bulkyogunluk"]').attr("hidden", "hidden");
     }
 });
 $('#stoktip').on('change', () => {
