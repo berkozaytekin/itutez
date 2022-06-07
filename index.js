@@ -1,6 +1,6 @@
 
 
-let w, ef8 = 1, ef1 = 1, ef4 = 1, rr, ef7 = 1, ef5 = 1, ef2 = 1, hp, dividedHp, fo, fb, bko=1, devredenYuk=1, degirmensayisi,otojenw,otojenkw, otojentopkw, otojeny, otojenc, otojenUzunluk, otojenCap,otojenSonHp;
+let w, ef8 = 1, ef1 = 1, ef4 = 1, rr, ef7 = 1, ef5 = 1, ef2 = 1,ef6 = 1,ro, hp, dividedHp, fo, fb, bko=1, devredenYuk=1, degirmensayisi,otojenw,otojenkw, otojentopkw, otojeny, otojenc, otojenUzunluk, otojenCap,otojenSonHp;
 let karestok , konikstok, yaricap , istinatstok ,v1 ,yaricap2, yaricap3 ,v2,v3 ,v4  ;
 let fbant, fbantgenislik, fbantagirlik , fbosbant , bantuzunluk , fbosbant2, fbosbant3, egim, hkotbant , fbantguc;
 let q1 , q2 , q3 , q4 , q5 , q6 , q7, q8 ,qt , mdegeri, e1, e2, kdegeri, tdegeri, firstc, cdegeri, elekalan;
@@ -575,6 +575,7 @@ function CalcMill() {
     fo = (16000 * (Math.sqrt((13 / parseFloat($('#isindeks').val())))))
     fb = (4000 * (Math.sqrt((13 / parseFloat($('#isindeks').val())))))
     rr = $('#beslenengecenboyut').val() / $('#degirmencikisboyut').val()
+    
 
 
 
@@ -625,6 +626,15 @@ function CalcMill() {
     if (
         $('#degirmenTur option').filter('selected').val() === 'bilyali' &&
         rr < 6
+    ) {
+        ef7 = ((2 * (rr - 1.35) + 0.26) / (2(rr - 1.3)))
+    } else {
+        ef7 = 1
+    }
+
+    if (
+        $('#degirmenTur option').filter('selected').val() === 'cubuklu' &&
+        ro < 6
     ) {
         ef7 = ((2 * (rr - 1.35) + 0.26) / (2(rr - 1.3)))
     } else {
@@ -745,6 +755,15 @@ function CalcMill() {
             newHizCs= oran * closest.hizCs
             newCubukSarjAgir = oran * closest.cubukSarjAgir
         }
+        ro = 8 + ( ( 5 * newCubukUzunluk ) / newCap )
+
+        if (rr > ro +2 && rr < ro -2 && $('#isindeks').val()>7) {
+
+            ef6 = 1 + ((Math.sqrt(rr-ro)) / 150)
+            
+
+        }
+
 
         var form = document.createElement("div");
     form.innerHTML = `
@@ -758,7 +777,7 @@ function CalcMill() {
                     <br>
                     Astarlar Arası Çap: ${newAstarCap.toFixed(2)} m
                     <br>
-                    Hız Cs: ${newHizCs.toFixed(2)} 
+                    Kritik Hız Cs: ${newHizCs.toFixed(2)} 
                     <br>
                     Çubuk Uzunluğu: ${newCubukUzunluk.toFixed(2)} m
                     <br>
@@ -853,7 +872,7 @@ $('#devretip').val() &&
                     <br>
                     Astarlar Arası Çap: ${newAstarCap.toFixed(2)} m
                     <br>
-                    Hız Cs: ${newHizCs.toFixed(2)} 
+                    Kritik Hız Cs: ${newHizCs.toFixed(2)} 
                     <br>
                     Bilya Çapı: ${newBilyamm.toFixed(2)} mm
                 `
