@@ -962,9 +962,10 @@ function CalcElek(){
     qt = q1 * q2 * q3 * q4 * q5 * q6 * q7 * q8
     console.log('qt:', qt)
     e1 = 1.6
-    mdegeri = Math.abs(((1.6 / 100) * $('#elekustu').val() )- 1.6)
+    mdegeri = ( Math.abs(((1.6 / 100) * $('#elekustu').val() )- 1.6) ) * 2 )
     e2 = 2
-    kdegeri = (2 / 90) * $('#elekyari').val()
+    kdegeri = ((2 / 90) * $('#elekyari').val() ) 
+    
     tdegeri = $('#kapasite').val() * ($('#elekustu').val()/100)
 
     if ($('#elekacikligi option').filter(':selected').val() == 40 ) {
@@ -1015,10 +1016,10 @@ function CalcElek(){
 
     if(firstc < 25 ){
 
-        cdegeri = (( 55 / 25 ) * firstc ) + 10
+        cdegeri = (( 55 / 25 ) * firstc ) + 9.6
 
     } else {
-        cdegeri = (( 170 / 175 ) * firstc) + 40
+        cdegeri = (( 170 / 175 ) * firstc) + 31.6
 
     }
 
@@ -1031,7 +1032,7 @@ function CalcElek(){
    console.log('elekalan:', elekalan)
    var form = document.createElement("div");
         form.innerHTML = `
-                        ${elekalan.toFixed(2)} m<sup>2</sup>
+                            ${elekalan.toFixed(2)}  m<sup>2</sup>
                         
                     `
         swal({
@@ -1041,7 +1042,7 @@ function CalcElek(){
     }else {
         swal('İstenilen Tüm Değerleri Girmelisiniz')
     }
-
+   
     
 }
 
