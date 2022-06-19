@@ -43,7 +43,7 @@ body {
 }
 
 .homeContainer .homeTitle {
-  color: #efdab9;
+  color: #ffd152;
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -172,7 +172,7 @@ body {
   padding: .25rem;
   font-size: 4rem;
   margin: 5rem 0 .5rem 0;
-  color: #efdab9;
+  color: #000000;
   outline: none;
   width: 100%;
   text-align: center;
@@ -189,7 +189,7 @@ body {
   padding: .25rem;
   font-size: 4rem;
   margin: 5rem 0 .5rem 0;
-  color: #efdab9;
+  color: #ffd152;
   outline: none;
   width: 100%;
   text-align: center;
@@ -203,7 +203,7 @@ body {
   -webkit-transform: rotate(-90deg) translateY(-50%);
           transform: rotate(-90deg) translateY(-50%);
   pointer-events: none;
-  color: #efdab9;
+  color: #ffd152;
   font-size: 3rem;
 }
 
@@ -318,7 +318,7 @@ body {
 }
 
 .inputWrapper > label {
-  color: #efdab9;
+  color: #ffd152;
   margin-bottom: .7rem;
   width: 100%;
   font-size: .95rem;
@@ -326,19 +326,19 @@ body {
 
 .inputWrapper input, .inputWrapper select {
   background: none;
-  border: 1px solid #efdab9;
+  border: 1px solid #ffd152;
   border-radius: 6px;
   padding: .25rem;
   font-size: 1rem;
   margin-bottom: .5rem;
-  color: #efdab9;
+  color: #ffd152;
   outline: none;
   width: 100%;
 }
 
 .inputWrapper input option, .inputWrapper select option {
   background-color: #343233;
-  color: #efdab9;
+  color: #ffd152;
 }
 
 .hidden {
@@ -389,5 +389,17 @@ body {
     display: -ms-flexbox;
     display: flex;
   }
+}
+
+.d-flex-between {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 /*# sourceMappingURL=styles.css.map */
