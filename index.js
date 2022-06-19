@@ -2310,7 +2310,7 @@ function CalcMill() {
         var form = document.createElement("div");
         form.innerHTML = `
         <div class="d-flex-between"><span> Gereken Toplam Değirmen Sayısı:</span><span> ${degirmensayisi}</span></div>
-                    <div class="d-flex-between"><span> 1 Değirmen İçin Gereken Motor Gücü:</span><span>${dividedHp.toFixed(2)} hp</span></div>
+                    <div class="d-flex-between"><span>1 Değirmen İçin Gereken Motor Gücü:</span><span>${dividedHp.toFixed(2)} hp</span></div>
                     <div class="d-flex-between"><span> Çap:</span><span>${newCap.toFixed(2)} m</span></div>
                     <div class="d-flex-between"><span>Uzunluk:</span><span>${newUzunluk.toFixed(2)} m</span></div>
                     <div class="d-flex-between"><span>Astarlar Arası Çap:</span><span>${newAstarCap.toFixed(2)} m</span></div>
