@@ -8,7 +8,7 @@ let w, ef8 = 1,
     ef6 = 1,
     ro, hp, dividedHp, fo, fb, bko = 1,
     devredenYuk = 1,
-    degirmensayisi, otojenw, otojenkw, otojentopkw, otojeny, otojenc, otojenUzunluk, otojenCap, otojenSonHp;
+    degirmensayisi, otojenw,otojenw75, otojenkw, otojentopkw, otojeny, otojenc, otojenUzunluk, otojenCap, otojenSonHp;
 let karestok, konikstok, yaricap, istinatstok, v1, yaricap2, yaricap3, v2, v3, v4, konikstokm, karestokm;
 let fbant, fbantgenislik, fbantagirlik, fbosbant, bantuzunluk, fbosbant2, fbosbant3, egim, hkotbant, fbantguc;
 let q1, q2Son, q3, q4, q5, q6, q7, q8, qt, e1, e2, kdegeri, tdegeri, firstc, cdegeri, elekalan, cdegerison, bromdegerii, brokdegeri, q2degeri = 1,
@@ -1925,6 +1925,10 @@ const elekAlanValues = [{
         "elekBoyut": "1.2 m x 3 m"
     },
     {
+        "etkiliAlan": 3.34,
+        "elekBoyut": "1.2 m x 3.6 m"
+    },
+    {
         "etkiliAlan": 3.9,
         "elekBoyut": "1.2 m x 3.6 m"
     },
@@ -1970,7 +1974,7 @@ $('#degirmenTur').val('bilyali')
 $('#devretip').val('kapalidevre')
 $('#ogutmeortam').val('yasogutme')
 $('#isindeks').val(14.7)
-$('#beslemeton').val(150)
+$('#beslemeton').val(100)
 $('#beslenengecenboyut').val(2400)
 $('#beslenenyogunluk').val(2.8)
 $('#degirmencikisboyut').val(53)
@@ -1990,8 +1994,8 @@ $('#maksparcaboyut').val(50)
 $('#elekaltiboyut').val(45)
 $('#besleneneton').val(300)
 $('#hedefboyut').val(3)
-$('#beslenenkirilmamis').val(80)
-$('#elekverim').val('1.2')
+$('#beslenenkirilmamis').val(35)
+$('#elekverim').val(80)
 $('#besleneneu').val(30)
 $('#cikaneu').val(25)
 $('#yogunluk').val(2.3)
@@ -2328,8 +2332,9 @@ function CalcMill() {
         $('#beslenengecenboyut').val() &&
         $('#otojendl').val() &&
         $('#fSagOtojen').val()) {
-        otojenw = (10 * $('#isindeks').val() * ((1 / Math.sqrt(75) - (1 / Math.sqrt($('#beslenengecenboyut').val())))))
-        otojenkw = (w * $('#fSagOtojen').val()) - otojenw
+        otojenw =  (10 * $('#isindeks').val() * ((1 / Math.sqrt($('#degirmencikisd80').val()) - (1 / Math.sqrt($('#beslenengecenboyut').val()))))) 
+        otojenw75 = (10 * $('#isindeks').val() * ((1 / Math.sqrt(75) - (1 / Math.sqrt($('#beslenengecenboyut').val())))))
+        otojenkw = (otojenw * $('#fSagOtojen').val()) - otojenw75
         otojentopkw = otojenkw * $('#beslemeton').val()
         if (otojentopkw > 180 && otojentopkw <= 2000) {
             otojeny = 3.7
@@ -2341,6 +2346,12 @@ function CalcMill() {
         otojenCap = Math.pow((otojentopkw * $('#otojendl').val() * otojenc), 1 / otojeny)
         otojenUzunluk = otojenCap / $('#otojendl').val()
         otojenSonHp = otojentopkw / 1.34102
+        
+        console.log('otojenw:', otojenw)
+        console.log('otojenw75:', otojenw75)
+        console.log('otojenkw:', otojenkw)
+        console.log('otojentopkw:', otojentopkw)
+        console.log('otojenSonHp:', otojenSonHp)
 
         var form = document.createElement("div");
         form.innerHTML = `
@@ -2959,8 +2970,7 @@ $('#degirmenTur').on('change', () => {
         $('#degirmencikisboyut').removeAttr("hidden");
         $('label[for="degirmencikisboyut"]').removeAttr("hidden");
 
-        $('#degirmencikisd80').removeAttr("hidden");
-        $('label[for="degirmencikisd80"]').removeAttr("hidden");
+        
 
     } else {
         $('#ogutmeortam').attr("hidden", "hidden");
@@ -2978,7 +2988,6 @@ $('#degirmenTur').on('change', () => {
         $('#degirmencikisboyut').attr("hidden", "hidden");
         $('label[for="degirmencikisboyut"]').attr("hidden", "hidden");
 
-        $('#degirmencikisd80').attr("hidden", "hidden");
-        $('label[for="degirmencikisd80"]').attr("hidden", "hidden");
+      
     }
 });
