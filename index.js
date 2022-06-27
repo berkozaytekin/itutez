@@ -2473,7 +2473,7 @@ function CalcElek() {
                             
                         `
             swal({
-                title: 'Sonuclar',
+                title: 'Sonuçlar',
                 content: form
             })
         }
